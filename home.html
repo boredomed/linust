@@ -82,7 +82,7 @@ var password = document.getElementById("password1")
 
 <style>
 
-	.dropdown-menu > li.kopie > a {
+.dropdown-menu > li.kopie > a {
     padding-left:px;
 }
  
@@ -121,6 +121,7 @@ var password = document.getElementById("password1")
   
 @media (max-width: 767px) {
   .navbar-nav  {
+	 width:100%;
      display: inline;
   }
   .navbar-default .navbar-brand {
@@ -162,6 +163,22 @@ var password = document.getElementById("password1")
     border: 0px solid red;
 	
    }
+   
+   .namee{
+		margin-top:280px;
+   }
+   
+   .container .carousel{
+		width:100%;
+		margin:0px;
+		top:170px;
+  }
+  
+  .modal-dialog {
+    width: 100%;
+	left:0px;
+}
+
 
 }
  
@@ -172,6 +189,11 @@ var password = document.getElementById("password1")
   #navbar {
     text-align: center;
   }
+  #carousel{
+	width:100%;
+	margin-top:150px;
+  }
+  
 } 
 </style>
 
@@ -294,12 +316,12 @@ var password = document.getElementById("password1")
         <div class="modal-body">
             <form class="form-inline"  method="post" action=''>
 
-              <div class="form-group" style="margin-left: 0.7cm"><h5 ><b>Name</b>
+              <div class="form-group" style="margin-left: 24.45px"><h5 ><b>Name</b>
                 <label class="sr-only" for="fname">First Name</label><input type="text" class="form-control input-sm" placeholder="First Name" id="fname" name="fname" required>
               </div>
               &nbsp;
               &nbsp;
-              <div class="form-group" style="margin-left: 0.2cm">
+              <div class="form-group" style="margin-left: 7.56px">
                 <label class="sr-only" for="lname">Last Name</label><input type="text" class="form-control input-sm" placeholder="Last Name" id="lname" name="lname"></h5>
               </div>
               </Br>
@@ -324,7 +346,7 @@ var password = document.getElementById("password1")
               &nbsp;
               &nbsp;
               <div class="form-group">  
-                <label class="sr-only" for="repassword" >Re-Enter Password</label>
+                <label class="sr-only" for="repassword" style="margin-left: 0cm">Re-Enter Password</label>
                   <input type="password" class="form-control input-sm" placeholder="Re-Enter Password" id="repassword" name="repassword" onkeyup = "pass_match()" required></h5>
               </div>
 
@@ -352,10 +374,12 @@ var password = document.getElementById("password1")
 
 	  
 <!-- Crousal -->
-<h2 style="text-align:center;margin-top:1.5cm">LINUST</h2>
+<div class = "namee"  style="text-align:center;margin-top:65px">
+<h2>LINUST</h2>
+</div>
 
-<div class="container">
-  <div id="myCarousel" class="carousel slide" data-ride="carousel"style= " margin:20px; width:1100px; height:500px">
+<div class="container" style= "width:1100px; height:500px">
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
 	
     <ol class="carousel-indicators">
