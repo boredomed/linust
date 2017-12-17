@@ -1,0 +1,395 @@
+<html>
+	<head>
+    <meta charset="uff-8">
+    <title>Login</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script>
+
+function func_p(){
+	var str = document.getElementById("password1").value;
+	var y = str.length;
+
+	var strength = 0;
+
+	var capital = new RegExp("[A-Z]");
+	var small = new RegExp("[a-z]");
+	var num = new RegExp("[1-9]");
+	var special = new RegExp("[{}/!@$%^&*()~]");
+
+	if(y > 7){
+		strength++;
+	}
+	
+	if(capital.test(str) && small.test(str)){
+		strength++;
+	}
+
+	if(num.test(str)){
+		strength++;
+	}
+
+	if(special.test(str)){
+		strength++;
+	}
+	var x = " ";
+	var colors = "red";
+	if(strength == 0){
+		color="red";
+		x = " poor";
+	}
+	else if(strength == 1){
+		colors = "red";
+		x = " poor";
+	}
+	else if(strength == 2){
+		colors = "orange"
+		x = " fair";
+	}
+	else if(strength == 3){
+		colors = "yellow"
+		x = " good";
+	}
+	else if(strength == 4){
+		colors = "blue";
+		x = " strong";
+	}
+	var x1 = "Strength";
+	document.getElementById("demo").style.color = colors;
+	document.getElementById("demo").innerHTML = x;
+	document.getElementById("demo1").innerHTML = x1;
+}
+
+function pass_match(){
+
+var password = document.getElementById("password1")
+  ,confirm_password = document.getElementById("repassword");
+
+  if(password.value != confirm_password.value) {
+    document.getElementById("demo2").innerHTML = "Password don't match";
+  } else {
+    document.getElementById("demo2").innerHTML = " ";
+  }
+}
+
+
+</script>
+
+
+<style>
+
+	.dropdown-menu > li.kopie > a {
+    padding-left:px;
+}
+ 
+.dropdown-submenu {
+    position:relative;
+}
+.dropdown-submenu>.dropdown-menu {
+   top:0;left:100%;
+   margin-top:-6px;margin-left:-1px;
+   -webkit-border-radius:0 6px 6px 6px;
+   -moz-border-radius:0 6px 6px 6px;
+   border-radius:0 6px 6px 6px;
+ }
+  
+.dropdown-submenu > a:after {
+  border-color: transparent transparent transparent #333;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  content: " ";
+  display: block;
+  float: right;  
+  height: 0;     
+  margin-right: -10px;
+  margin-top: 5px;
+  width: 0;
+}
+ 
+.dropdown-submenu:hover>a:after {
+    border-left-color:#555;
+	background-color:white;
+ }
+
+.dropdown-menu > li > a:hover, .dropdown-menu > .active > a:hover {
+  background-color:white;
+}  
+  
+@media (max-width: 767px) {
+  .navbar-nav  {
+     display: inline;
+  }
+  .navbar-default .navbar-brand {
+    display: inline;
+  }
+  .navbar-default .navbar-toggle .icon-bar {
+    background-color: white;
+  }
+  .navbar-default .navbar-nav .dropdown-menu > li > a {
+    color: red;
+    background-color: white;
+    border-radius: 4px;
+    margin-top: 2px;   
+  }
+   .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+     color: #333;
+   }
+   .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+   .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+     background-color: white;
+   }
+
+   .navbar-nav .open .dropdown-menu {
+     border-bottom: 1px solid white; 
+     border-radius: 0;
+   }
+  .dropdown-menu {
+      padding-left: 10px;
+  }
+  .dropdown-menu .dropdown-menu {
+      padding-left: 20px;
+	  background-color: white;
+   }
+   .dropdown-menu .dropdown-menu .dropdown-menu {
+      padding-left: 30px;
+	  background-color: white;
+   }
+   li.dropdown.open {
+    border: 0px solid red;
+	
+   }
+
+}
+ 
+@media (min-width: 768px) {
+  ul.nav li:hover > ul.dropdown-menu {
+    display: block;
+  }
+  #navbar {
+    text-align: center;
+  }
+} 
+</style>
+
+</head>
+
+<body>
+
+<!-- Nav Bar -->
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+	
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      </button>
+
+	  
+<ul class="nav navbar-nav">
+      <li class="active"><a href="#"><span class="glyphicon glyphicon-home" aria-hidden="true"></span><b>&nbsp Home</b></a></li>
+	  <li class = "dropdown">
+	    <a href="#intro" class="dropdown-toggle" data-toggle="dropdown" style="color:white;">Schools</a>
+			<ul class="dropdown-menu" style="background-color:black">
+			
+			<li class="dropdown dropdown-submenu" >
+				<a href="course1.html" target="null" class="dropdown-toggle" data-toggle="dropdown" style="color:grey;">Seecs</a>
+					<ul class = "dropdown-menu" style="background-color:black;">
+					<li><a href="course1.html" target="null" style="color:grey;">Software Engineering</a></li>
+					<li><a href="course1.html" target="null" style="color:grey;">Electrical Engineering</a></li>
+					<li><a href="course1.html" target="null" style="color:grey;">Computer Science</a></li>
+					</ul>
+			</li>
+			<li class="dropdown dropdown-submenu" >
+				<a href="course1.html" target="null" class="dropdown-toggle" data-toggle="dropdown" style="color:grey;">Nbs</a>
+					<ul class = "dropdown-menu" style="background-color:black;">
+					<li><a href="course1.html" target="null" style="color:grey;">BBA</a></li>
+					<li><a href="course1.html" target="null" style="color:grey;">MBA</a></li>
+					<li><a href="course1.html" target="null"style="color:grey;">ACF</a></li>
+					</ul>
+			</li>
+			
+			<li class="dropdown dropdown-submenu" >
+			<a href="course1.html" target="null" class="dropdown-toggle" data-toggle="dropdown" style="color:grey;">SMME</a>
+			</li>
+			
+			<li class="dropdown dropdown-submenu" >
+			<a href="course1.html" target="null" class="dropdown-toggle" data-toggle="dropdown" style="color:grey;">SCME</a>
+			</li>
+			
+			<li class="dropdown dropdown-submenu" >
+			<a href="course1.html" target="null" class="dropdown-toggle" data-toggle="dropdown" style="color:grey;">S3H</a>
+			</li>
+			</ul>
+	  </li>
+	  
+      <li><a href="#">News Portal</a></li>
+      <li><a href="#">Contact Us</a></li>
+</ul>
+</div>
+	
+<!-- Login Button !-->
+<ul class="nav navbar-nav navbar-right">
+      <li><a data-toggle="modal" data-target="#signupModal"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a data-toggle="modal" data-target="#loginModal"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+</ul>
+
+</div>
+</nav>
+
+<!-- Login Form !-->
+    <div id="loginModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"> &times;</button>
+                <h4>Login</h4>
+            </div>
+
+            <div class="modal-body">
+			    <!-- Form for collection of data from the sign-up form -->
+                <form class="form-inline" method = 'post' action = ''>
+                  <div class="form-group">
+                       <label class="sr-only" for="email">Username</label><input type="text" class="form-control input-sm" placeholder="username" id="username" name="username" required>
+                  </div>
+
+                  <div class="form-group">  
+                    <label class="sr-only" for="password" >Password</label>
+                        <input type="password" class="form-control input-sm" placeholder="Password" id="password" name="password" required>
+                  </div>
+  
+                  <button type="submit" class="btn btn-info btn-xs">Sign in</button>
+
+                  </Br></Br>
+
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" id = "rememberme" name = "rememberme"> Remember me
+                    </label>
+                  </div>
+  
+                </form>
+            </div>
+        </div>
+        </div>
+      </div>
+</body>
+
+
+<!-- SignUp Form !-->
+<div id="signupModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"> &times;</button>
+                <h3><b>Sign Up</b></h3>
+            </div>
+
+        <div class="modal-body">
+            <form class="form-inline"  method="post" action=''>
+
+              <div class="form-group" style="margin-left: 0.7cm"><h5 ><b>Name</b>
+                <label class="sr-only" for="fname">First Name</label><input type="text" class="form-control input-sm" placeholder="First Name" id="fname" name="fname" required>
+              </div>
+              &nbsp;
+              &nbsp;
+              <div class="form-group" style="margin-left: 0.2cm">
+                <label class="sr-only" for="lname">Last Name</label><input type="text" class="form-control input-sm" placeholder="Last Name" id="lname" name="lname"></h5>
+              </div>
+              </Br>
+              </Br>
+
+              <div class="form-group" style="margin-left: 0cm"><h5><b>Username</b>
+                <label class="sr-only" for="username1">Username</label><input type="text" class="form-control input-sm" placeholder="username" id="username1" name="username1" required></h5>
+              </div>
+              </Br>
+              </Br>
+
+              <div class="form-group" style="margin-left: 0.6cm"><h5><b>E-mail</b>
+                <label class="sr-only" for="email">Email</label><input type="text" class="form-control input-sm" placeholder="Email" id="email" name="email" required></h5>
+              </div>
+              </Br>
+              </Br>
+
+              <div class="form-group" style="margin-left: 0.2cm"><h5><b>Pasword</b>
+                <label class="sr-only" for="password1" >Password</label>
+                  <input type="password" class="form-control input-sm" placeholder="Password" id="password1" name="password1" onkeyup = "func_p()" required>
+              </div>
+              &nbsp;
+              &nbsp;
+              <div class="form-group">  
+                <label class="sr-only" for="repassword" >Re-Enter Password</label>
+                  <input type="password" class="form-control input-sm" placeholder="Re-Enter Password" id="repassword" name="repassword" onkeyup = "pass_match()" required></h5>
+              </div>
+
+            </Br>
+			<p id = "demo1" style= "display:inline; margin-left: 1.7cm;"></p>
+			<p style= "display:inline; margin-left: 0cm" id = "demo"></p>
+			<p style= "display:inline; margin-left: 2.5cm; color:red" id = "demo2"></p>
+			</Br></Br>
+            <div class="form-group">
+              <input type="checkbox" id="accept-terms">
+                <label for="accept-terms">I agree to the <a href="#0">Terms</a></label>
+            </div>
+
+                  </Br></Br>
+                  <button type="submit" class="btn btn-info btn-xs">Sign Up</button>
+
+                  </Br>
+                  </Br>
+  
+                </form>
+            </div>
+        </div>
+        </div>
+      </div>
+
+	  
+<!-- Crousal -->
+<h2 style="text-align:center;margin-top:1.5cm">LINUST</h2>
+
+<div class="container">
+  <div id="myCarousel" class="carousel slide" data-ride="carousel"style= " margin:20px; width:1100px; height:500px">
+    <!-- Indicators -->
+	
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+      <div class="item active">
+        <img src="cips.jpg" alt="Los Angeles" style="width:100%;">
+      </div>
+
+      <div class="item">
+        <img src="header.jpg" alt="Chicago" style="width:100%;">
+      </div>
+    
+      <div class="item">
+        <img src="vision.jpg" alt="New york" style="width:100%;">
+      </div>
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+
+</body>
+</html>

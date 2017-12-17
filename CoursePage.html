@@ -1,0 +1,146 @@
+<html>
+<head>
+<title> DataBase Systems </title>
+<head>
+	  <!-- media queries -->
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+	  <!-- for navigation bar -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <!-- for js --> 
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <!-- external stylesheet -->
+	  <link rel="stylesheet" type="text/css" href="stylesheet1.css" />
+</head>
+
+<script>
+$(document).ready(function(){
+    $("div.headers").click(function(){
+        $(this).find("ul").toggle();
+        $(this).find("form :button").toggle();
+    });
+    
+});
+
+function my_func() {
+    document.getElementById('my_file').click();
+};
+
+</script>
+
+<body>	
+	<!-- Nav Bar -->
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+	
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      </button>
+
+	  
+<ul class="nav navbar-nav">
+      <li class="active"><a href="#"><span class="glyphicon glyphicon-home" aria-hidden="true"></span><b>&nbsp Home</b></a></li>
+	  <li class = "dropdown">
+	    <a href="#intro" class="dropdown-toggle" data-toggle="dropdown" style="color:white;">Schools</a>
+			<ul class="dropdown-menu" style="background-color:black">
+			
+			<li class="dropdown dropdown-submenu" >
+				<a href="course1.html" target="null" class="dropdown-toggle" data-toggle="dropdown" style="color:grey;">Seecs</a>
+					<ul class = "dropdown-menu" style="background-color:black;">
+					<li><a href="course1.html" target="null" style="color:grey;">Software Engineering</a></li>
+					<li><a href="course1.html" target="null" style="color:grey;">Electrical Engineering</a></li>
+					<li><a href="course1.html" target="null" style="color:grey;">Computer Science</a></li>
+					</ul>
+			</li>
+			<li class="dropdown dropdown-submenu" >
+				<a href="course1.html" target="null" class="dropdown-toggle" data-toggle="dropdown" style="color:grey;">Nbs</a>
+					<ul class = "dropdown-menu" style="background-color:black;">
+					<li><a href="course1.html" target="null" style="color:grey;">BBA</a></li>
+					<li><a href="course1.html" target="null" style="color:grey;">MBA</a></li>
+					<li><a href="course1.html" target="null"style="color:grey;">ACF</a></li>
+					</ul>
+			</li>
+			
+			<li class="dropdown dropdown-submenu" >
+			<a href="course1.html" target="null" class="dropdown-toggle" data-toggle="dropdown" style="color:grey;">SMME</a>
+			</li>
+			
+			<li class="dropdown dropdown-submenu" >
+			<a href="course1.html" target="null" class="dropdown-toggle" data-toggle="dropdown" style="color:grey;">SCME</a>
+			</li>
+	
+			<li class="dropdown dropdown-submenu" >
+			<a href="course1.html" target="null" class="dropdown-toggle" data-toggle="dropdown" style="color:grey;">S3H</a>
+			</li>
+			</ul>
+	  </li>
+	  
+      <li><a href="#">News Portal</a></li>
+      <li><a href="#">Contact Us</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<div style="position: relative;">
+<h2 style="text-align:left; margin-top:2cm; margin-left: 1cm;">DATABASE SYSTEMS</h2>
+<form method="get" action="file.doc" style="float: right; margin-right: 4cm">
+   <button type="submit">Download All Material</button>
+</form>
+</div>
+<p> Insert course description here.</p>
+
+<div class="headers"><h3>Course Outline</h3>
+<ul style="list-style:none; display: none">
+<li>Beta</li>
+<li>Alpha</li>
+</ul>
+</div>
+<div class="headers" ><h3>Couse Work</h3>
+<form method="get" action="file.doc" style="float: right; margin-right: 4cm">
+   <input type="button" id="get_file" value="Upload Course Material" style="display: none;" onclick="my_func()">
+   <input type="file" id="my_file" style="display: none;">
+</form>
+<ul style="list-style:none; display: none">
+<li>Beta</li>
+<li>Alpha</li>	
+</ul>
+</div>
+<div class="headers" ><h3>Related links</h3>
+	<form method="get" action="file.doc" style="float: right; margin-right: 4cm">
+    <input type="button" id="get_file" value="Upload Links" style="display: none;" onclick="my_func()">
+   <input type="file" id="my_file" style="display: none;">
+</form>
+<ul style="list-style:none; display: none">
+<li>Beta</li>
+<li>Alpha</li>	
+</ul>
+</div>
+
+<div>
+	<h3 style="background-color: white; color: black;">Comments:</h3>
+
+		        <div class="modal-body" style="margin-left: 2cm;">
+			    <!-- Form for collection of data from the sign-up form -->
+                <form class="form-inline" method = 'post' action = ''>
+                  <div class="form-group">
+                       <label class="sr-only">Username</label><input type="text" class="form-control input-sm" placeholder="Username" id="Username" name="Username">
+                  </div>
+              </Br></Br>
+                  <div class="form-group">  
+                    <label class="sr-only">Password</label>
+                        <input type="text" class="form-control input-sm" placeholder="Comment" id="Comment" name="Comment">
+                  </div>
+  				
+  				 </Br></Br>
+                  <button type="submit" class="btn btn-info btn-xs">Submit</button>
+                </form>
+            </div>
+
+</div>
+</div>
+
+
+</body>
