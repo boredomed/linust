@@ -1,291 +1,274 @@
 <html>
 	<head>
     <meta charset="uff-8">
-    <title>Software Engineering</title>
-
-    <link rel="stylesheet" href="C:\Users\Lenovo\Desktop\Notes 5th semester\WE\linust_semester5\linust_semester5\style.css">
-
-
+    <title>Degree View</title>
+<link rel="stylesheet" href="style.css" >
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_ZLiuoiFRFyTjcOMLxGiFWE9A9HXcYsI&callback=initMap">
+    </script>
+  
+	<link rel="stylesheet" type="text/css" href="css/animate.css">
+  <!-- Normalize -->
+	<link rel="stylesheet" type="text/css" href="css/cardio.css">
+
+    <script src="navbar_scripts.js"></script>
+  <link rel="stylesheet" type="text/css" href="stylesheet1.css">
+
 	
+<script>
 
-<style>
 
-  .dropdown-menu > li.kopie > a {
-    padding-left:px;
+$(document).ready(function(){
+    $('[data-toggle="popover"]').popover();   
+});
+
+
+var i = 0;
+var txt = 'LINE NUST WITH INOVATION';
+var speed = 50;
+
+function typeWriter() {
+  if (i < txt.length) {
+    document.getElementById("n2").innerHTML += txt.charAt(i);
+    i++;
+    setTimeout(typeWriter, speed);
+  }
 }
- 
-.dropdown-submenu {
-    position:relative;
-}
-.dropdown-submenu>.dropdown-menu {
-   top:0;left:100%;
-   margin-top:-6px;margin-left:-1px;
-   -webkit-border-radius:0 6px 6px 6px;
-   -moz-border-radius:0 6px 6px 6px;
-   border-radius:0 6px 6px 6px;
- }
-  
-.dropdown-submenu > a:after {
-  border-color: transparent transparent transparent #333;
-  border-style: solid;
-  border-width: 5px 0 5px 5px;
-  content: " ";
-  display: block;
-  float: right;  
-  height: 0;     
-  margin-right: -10px;
-  margin-top: 5px;
-  width: 0;
-}
- 
-.dropdown-submenu:hover>a:after {
-    border-left-color:#555;
-  background-color:white;
- }
 
-.dropdown-menu > li > a:hover, .dropdown-menu > .active > a:hover {
-  background-color:white;
-}  
-  
-@media (max-width: 767px) {
-  .navbar-nav  {
-     display: inline;
-  }
-  .navbar-default .navbar-brand {
-    display: inline;
-  }
-  .navbar-default .navbar-toggle .icon-bar {
-    background-color: white;
-  }
-  .navbar-default .navbar-nav .dropdown-menu > li > a {
-    color: red;
-    background-color: white;
-    border-radius: 4px;
-    margin-top: 2px;   
-  }
-   .navbar-default .navbar-nav .open .dropdown-menu > li > a {
-     color: #333;
-   }
-   .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
-   .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
-     background-color: white;
-   }
-
-   .navbar-nav .open .dropdown-menu {
-     border-bottom: 1px solid white; 
-     border-radius: 0;
-   }
-  .dropdown-menu {
-      padding-left: 10px;
-  }
-  .dropdown-menu .dropdown-menu {
-      padding-left: 20px;
-    background-color: white;
-   }
-   .dropdown-menu .dropdown-menu .dropdown-menu {
-      padding-left: 30px;
-    background-color: white;
-   }
-   li.dropdown.open {
-    border: 0px solid red;
-  
-   }
-
-}
- 
-@media (min-width: 768px) {
-  ul.nav li:hover > ul.dropdown-menu {
-    display: block;
-  }
-  #navbar {
-    text-align: center;
-  }
-} 
-
-
-</style>
-
-
+</script>
 </head>
 
-<body>
-<
-
-<!-- Nav Bar -->
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-  <div class="container-fluid">
-    <div class="navbar-header">
-	
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      </button>
-
-	  
-<ul class="nav navbar-nav">
-      <li class="active"><a href="#"><span class="glyphicon glyphicon-home" aria-hidden="true"></span><b>&nbsp Home</b></a></li>
-	  <li class = "dropdown">
-	    <a href="#intro" class="dropdown-toggle" data-toggle="dropdown" style="color:white;">Schools</a>
-			<ul class="dropdown-menu" style="background-color:black">
-			
-			<li class="dropdown dropdown-submenu" >
-				<a href="course1.html" target="null" class="dropdown-toggle" data-toggle="dropdown" style="color:grey;">Seecs</a>
-					<ul class = "dropdown-menu" style="background-color:black;">
-					<li><a href="course1.html" target="null" style="color:grey;">Software Engineering</a></li>
-					<li><a href="course1.html" target="null" style="color:grey;">Electrical Engineering</a></li>
-					<li><a href="course1.html" target="null" style="color:grey;">Computer Science</a></li>
-					</ul>
-			</li>
-			<li class="dropdown dropdown-submenu" >
-				<a href="course1.html" target="null" class="dropdown-toggle" data-toggle="dropdown" style="color:grey;">Nbs</a>
-					<ul class = "dropdown-menu" style="background-color:black;">
-					<li><a href="course1.html" target="null" style="color:grey;">BBA</a></li>
-					<li><a href="course1.html" target="null" style="color:grey;">MBA</a></li>
-					<li><a href="course1.html" target="null"style="color:grey;">ACF</a></li>
-					</ul>
-			</li>
-			
-			<li class="dropdown dropdown-submenu" >
-			<a href="course1.html" target="null" class="dropdown-toggle" data-toggle="dropdown" style="color:grey;">SMME</a>
-			</li>
-			
-			<li class="dropdown dropdown-submenu" >
-			<a href="course1.html" target="null" class="dropdown-toggle" data-toggle="dropdown" style="color:grey;">SCME</a>
-			</li>
-			
-			<li class="dropdown dropdown-submenu" >
-			<a href="course1.html" target="null" class="dropdown-toggle" data-toggle="dropdown" style="color:grey;">S3H</a>
-			</li>
-			</ul>
-	  </li>
-	  
-      <li><a href="#">News Portal</a></li>
-      <li><a href="#">Contact Us</a></li>
-</ul>
-</div>
-	
-<!-- Login Button !-->
-<ul class="nav navbar-nav navbar-right">
-      <li><a data-toggle="modal" data-target="#signupModal"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a data-toggle="modal" data-target="#loginModal"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-</ul>
-
-</div>
-</nav>
-
-<!-- Login Form !-->
-    <div id="loginModal" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"> &times;</button>
-                <h4>Login</h4>
-            </div>
-
-            <div class="modal-body">
-			    <!-- Form for collection of data from the sign-up form -->
-                <form class="form-inline" method = 'post' action = ''>
-                  <div class="form-group">
-                       <label class="sr-only" for="email">Username</label><input type="text" class="form-control input-sm" placeholder="username" id="username" name="username">
-                  </div>
-
-                  <div class="form-group">  
-                    <label class="sr-only" for="password">Password</label>
-                        <input type="password" class="form-control input-sm" placeholder="Password" id="password" name="password">
-                  </div>
-  
-                  <button type="submit" class="btn btn-info btn-xs">Sign in</button>
-
-                  </Br></Br>
-
-                  <div class="checkbox">
-                    <label>
-                      <input type="checkbox" id = "rememberme" name = "rememberme"> Remember me
-                    </label>
-                  </div>
-  
+<body onload = "typeWriter()">
+<section id="team" class="section gray-bg" style="background-image:url(b7.jpg); background-size:cover;";">
+  <!-- Nav Bar -->
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <img src = "logo.png" width = "40px" height = "40px" id = "imm">
+        <button id="navbarCollapseButton" type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>                        
+        </button>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li ><a href="home.html"><span class="glyphicon glyphicon-home" aria-hidden="true"></span><b>&nbsp Home</b></a></li>
+          <li class = "dropdown">
+            <a href="#intro" class="dropdown-toggle" data-toggle="dropdown" style="color:white;">Schools</a>
+            <ul class="dropdown-menu" style="background-color:black">
+        
+              <li class="dropdown dropdown-submenu" >
+                <a href="course1.html" target="null" class="dropdown-toggle" data-toggle="dropdown" style="color:grey;">Seecs</a>
+                  <ul class = "dropdown-menu" style="background-color:black;">
+                  <li><a href="course1.html" target="null" style="color:grey;">Software Engineering</a></li>
+                  <li><a href="course1.html" target="null" style="color:grey;">Electrical Engineering</a></li>
+                  <li><a href="course1.html" target="null" style="color:grey;">Computer Science</a></li>
+                  </ul>
+              </li>
+              <li class="dropdown dropdown-submenu" >
+                <a href="course1.html" target="null" class="dropdown-toggle" data-toggle="dropdown" style="color:grey;">Nbs</a>
+                  <ul class = "dropdown-menu" style="background-color:black;">
+                  <li><a href="course1.html" target="null" style="color:grey;">BBA</a></li>
+                  <li><a href="course1.html" target="null" style="color:grey;">MBA</a></li>
+                  <li><a href="course1.html" target="null"style="color:grey;">ACF</a></li>
+                  </ul>
+              </li>
+              
+              <li class="dropdown dropdown-submenu" >
+                <a href="course1.html" target="null" class="dropdown-toggle" data-toggle="dropdown" style="color:grey;">SMME</a>
+                <ul class = "dropdown-menu" style="background-color:black;">
+                    <li><a href="course1.html" target="null" style="color:grey;">Mechanical Engineering</a></li>
+                    <li><a href="course1.html" target="null" style="color:grey;">Megatronic Engineering</a></li>
+                    <li><a href="course1.html" target="null"style="color:grey;">Material Engineering</a></li>
+                </ul>
+              </li>
+              
+              <li class="dropdown dropdown-submenu" >
+                <a href="course1.html" target="null" class="dropdown-toggle" data-toggle="dropdown" style="color:grey;">NICE</a>
+                <ul class = "dropdown-menu" style="background-color:black;">
+                    <li><a href="course1.html" target="null" style="color:grey;">Civil Engineering</a></li>
+                    <li><a href="course1.html" target="null" style="color:grey;">Road Engineering</a></li>
+                    <li><a href="course1.html" target="null"style="color:grey;">Info Engineering</a></li>
+                </ul>
+              </li>
+        
+              <li class="dropdown dropdown-submenu" >
+                <a href="course1.html" target="null" class="dropdown-toggle" data-toggle="dropdown" style="color:grey;">SNS</a>
+                <ul class = "dropdown-menu" style="background-color:black;">
+                    <li><a href="course1.html" target="null" style="color:grey;">Physics</a></li>
+                    <li><a href="course1.html" target="null" style="color:grey;">Maths</a></li>
+                    <li><a href="course1.html" target="null"style="color:grey;">Fluid Physics</a></li>
+                </ul>
+              </li>
+              
+              <li class="dropdown dropdown-submenu" >
+                <a href="course1.html" target="null" class="dropdown-toggle" data-toggle="dropdown" style="color:grey;">SCME</a>
+              </li>
+              
+              <li class="dropdown dropdown-submenu" >
+                <a href="course1.html" target="null" class="dropdown-toggle" data-toggle="dropdown" style="color:grey;">S3H</a>
+              </li>
+            </ul>
+          </li>
+          <li><a href="portal.html">News Portal</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul><!-- Login Button !-->
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <ul class="nav">
+              <li>
+                <form id="searchContainer">
+                  <input list="list" id="name" placeholder="Search.." class="search" onclick="search()">
+                  <datalist id="list"> 
+                  </datalist>
                 </form>
-            </div>
+              </li>
+              <li>
+                <button style="margin:0px;margin:12px 0px 12px 0px ;padding: 0px;" class="searchGo">>></button>
+              </li>
+            </ul>
+          </li>
+          <li><a data-toggle="modal" data-target="#signupModal"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+          <li><a data-toggle="modal" data-target="#loginModal"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Login Form !-->
+  <div id="loginModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"> &times;</button>
+          <h3><b>Login<b></h3sss>
         </div>
+        <div class="modal-body">
+        <!-- Form for collection of data from the sign-up form -->
+          <form class="form-inline" method = 'post' action = ''>
+            <div class="form-group">
+              <label class="sr-only" for="email">Username</label>
+              <input type="text" class="form-control input-sm" placeholder="username" id="username" name="username" required>
+            </div>
+            <div class="form-group">  
+              <label class="sr-only" for="password" >Password</label>
+              <input type="password" class="form-control input-sm" placeholder="Password" id="password" name="password" required>
+            </div>
+            <button type="submit" class="btn btn-info btn-xs">Sign in</button>
+            </Br></Br>
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" id = "rememberme" name = "rememberme"> Remember me
+              </label>
+            </div>  
+          </form>
         </div>
       </div>
-</body>
+    </div>
+  </div>
 
-
-<!-- SignUp Form !-->
-<div id="signupModal" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"> &times;</button>
-                <h4>Sign Up</h4>
-            </div>
+  <!-- SignUp Form !-->
+  <div id="signupModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"> &times;</button>
+          <h3><b>Sign Up</b></h3>
+        </div>
 
         <div class="modal-body">
-            <form class="form-inline"  method="post" action=''>
-
-              <div class="form-group" style="margin-left: 0.7cm"><h5 >Name
-                <label class="sr-only" for="fname">First Name</label><input type="text" class="form-control input-sm" placeholder="First Name" id="fname" name="fname">
+          <form class="form-inline"  method="post" action=''>
+            <h5>
+              <div class="form-group" id = "fn">
+                  <b>Name</b>
+                  <label class="sr-only" for="fname">First Name</label>
+                  <input type="text" class="form-control input-sm" placeholder="First Name" id="fname" name="fname" required>
               </div>
               &nbsp;
               &nbsp;
-              <div class="form-group" style="margin-left: 0.2cm">
-                <label class="sr-only" for="lname">Last Name</label><input type="text" class="form-control input-sm" placeholder="Last Name" id="lname" name="lname"></h5>
+              <div class="form-group" id ="ln">
+                <label class="sr-only" for="lname">Last Name</label>
+                <input type="text" class="form-control input-sm" placeholder="Last Name" id="lname" name="lname">
               </div>
-              </Br>
-              </Br>
-
-              <div class="form-group" style="margin-left: 0cm"><h5>Username
-                <label class="sr-only" for="username1">Username</label><input type="text" class="form-control input-sm" placeholder="username" id="username1" name="username1"></h5>
+            </h5>
+            </Br>
+            </Br>
+            <h5>
+              <div class="form-group" style="margin-left: 0cm">
+                <b>Username</b>
+                <label class="sr-only" for="username1">Username</label>
+                <input type="text" class="form-control input-sm" placeholder="username" id="username1" name="username1" required>
+                &nbsp 
+                <a href="#" data-toggle="tooltip" title="No spaces should be included">
+                  <span class="glyphicon glyphicon-question-sign" aria-hidden="true">
+                  </span>
+                </a>
               </div>
-              </Br>
-              </Br>
-
-              <div class="form-group" style="margin-left: 0.6cm"><h5>E-mail
-                <label class="sr-only" for="email">Email</label><input type="text" class="form-control input-sm" placeholder="Email" id="email" name="email"></h5>
-              </div>
-              </Br>
-              </Br>
-
-              <div class="form-group" style="margin-left: 0.2cm"><h5>Pasword
-                <label class="sr-only" for="password1">Password</label>
-                  <input type="password1" class="form-control input-sm" placeholder="Password" id="password1" name="password1">
+            </h5>
+            </Br>
+            </Br>
+            <div class="form-group" id = "em">
+              <h5>
+                <b>E-mail</b>
+                <label class="sr-only" for="email">Email</label>
+                <input type="text" class="form-control input-sm" placeholder="Email" id="email" name="email" required>
+              </h5>
+            </div>
+            </Br>
+            </Br>
+            <h5>
+              <div class="form-group" id = "pw">
+                  <b>Pasword</b>
+                  <label class="sr-only" for="password1" >Password</label>
+                  <input type="password" class="form-control input-sm" placeholder="Password" id="password1" name="password1" onkeyup = "func_p()" required>
               </div>
               &nbsp;
               &nbsp;
               <div class="form-group">  
-                <label class="sr-only" for="repassword">Re-Enter Password</label>
-                  <input type="password" class="form-control input-sm" placeholder="Re-Enter Password" id="repassword" name="repassword"></h5>
+                <label class="sr-only" for="repassword" style="margin-left: 0cm">Re-Enter Password</label>
+                <input type="password" class="form-control input-sm" placeholder="Re-Enter Password" id="repassword" name="repassword" onkeyup = "pass_match()" required>
               </div>
-
+            </h5>
+            </Br>
+            <p id = "demo1" style= "display:inline; margin-left: 1.7cm;"></p>
+            <p style= "display:inline; margin-left: 0cm" id = "demo"></p>
+            <p style= "display:inline; margin-left: 2.5cm; color:red" id = "demo2"></p>
+            <p style= "display:inline; margin-left: 2.5cm; color:blue" id = "demo3"></p>
             </Br></Br>
             <div class="form-group">
               <input type="checkbox" id="accept-terms">
-                <label for="accept-terms">I agree to the <a href="#0">Terms</a></label>
+              <label for="accept-terms">I agree to the 
+                <a href="#" title="User Terms and Conditions" data-toggle="popover" data-placement="right" data-content="Personal information collection
+  Using personal information
+  Securing your data
+  Cross-border data transfers
+  Updating this statement
+  Other websites
+  Contact
+  This privacy statement">Terms</a>
+              </label>
             </div>
-
-                  </Br></Br>
-                  <button type="submit" class="btn btn-info btn-xs">Sign in</button>
-
-                  </Br>
-                  </Br>
-  
-                </form>
-            </div>
-        </div>
+            </Br></Br>
+            <button type="submit" class="btn btn-info btn-xs">Sign Up</button>
+            </Br>
+            </Br>
+          </form>
         </div>
       </div>
-
+    </div>
+  </div>
 	  
-<!-- Crousal -->
-<h2 style="text-align:center;margin-top:1.5cm">LINUST</h2>
-
+<div class = "namee" id = "n1">
+<h1>LINUST</h1>
+<h2 id = "n2"></h2>
+</div>
+<div class="table-responsive">
 <table class="container">
   <thead>
     <tr>
@@ -317,7 +300,7 @@
       <td>3rd semester</td>
       <td>Probability and Statistics</td>
       <td>Linear Algebra</td>
-      <td>Database Systems</td>
+      <td> <a href="CoursePageUser.html" target="null" style="color:grey;">Database Systems</a></td>
       <td>Software Engineering</td>
       <td colspan="2">Data Structures and Algorithms</td>
     </tr>
@@ -362,10 +345,19 @@
     </tr>
   </tbody>
 </table>
-  
-  
+ </div> 
+ 
 </body>
-</html>
+<nav id="myfooter" class="navbar navbar-default navbar-inverse navbar-fixed-bottom">
+    <div class="container" style="width:100%;padding:0px;">
+        <div class="navbar-header">
+            <ul>
+              <span class="navbar-brand"><a href="about.html" style="text-decoration: none !important;">About Us</a></span>
+              <span class="navbar-brand"><a href="contact.html" style="text-decoration: none !important;">Contact Us</a></span>
+            </ul>
+        </div>
 
-</body>
+        <p class="navbar-text navbar-right" style="font-weight: normal !important;font-size: 12;">BESE-6B - SEECS &emsp;|&emsp;Ahmed Rana &emsp; Sohaib Zahid &emsp; Mana Tariq &emsp; Zara Malik &emsp; </p>
+    </div>
+</nav>
 </html>

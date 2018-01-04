@@ -1,0 +1,260 @@
+<html>
+  <head>
+    <meta charset="uff-8">
+    <title>Contact Us</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="navbar_scripts.js"></script>
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_ZLiuoiFRFyTjcOMLxGiFWE9A9HXcYsI&callback=initMap">
+    </script>
+  
+  <link rel="stylesheet" type="text/css" href="css/animate.css">
+  <!-- Normalize -->
+  <link rel="stylesheet" type="text/css" href="css/cardio.css">
+  
+  <link rel="stylesheet" type="text/css" href="stylesheet1.css">
+
+</head>
+<body onload = "typeWriter()">
+<section id="team" class="section gray-bg" style="background-image:url(b7.jpg); background-size:cover;";">
+  <!-- Nav Bar -->
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <img src = "logo.png" width = "40px" height = "40px" id = "imm">
+        <button id="navbarCollapseButton" type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>                        
+        </button>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li ><a href="home.html"><span class="glyphicon glyphicon-home" aria-hidden="true"></span><b>&nbsp Home</b></a></li>
+          <li class = "dropdown">
+            <a href="#intro" class="dropdown-toggle" data-toggle="dropdown" style="color:white;">Schools</a>
+            <ul class="dropdown-menu" style="background-color:black">
+        
+              <li class="dropdown dropdown-submenu" >
+                <a href="course1.html" target="null" class="dropdown-toggle" data-toggle="dropdown" style="color:grey;">Seecs</a>
+                  <ul class = "dropdown-menu" style="background-color:black;">
+                  <li><a href="course1.html" target="null" style="color:grey;">Software Engineering</a></li>
+                  <li><a href="course1.html" target="null" style="color:grey;">Electrical Engineering</a></li>
+                  <li><a href="course1.html" target="null" style="color:grey;">Computer Science</a></li>
+                  </ul>
+              </li>
+              <li class="dropdown dropdown-submenu" >
+                <a href="course1.html" target="null" class="dropdown-toggle" data-toggle="dropdown" style="color:grey;">Nbs</a>
+                  <ul class = "dropdown-menu" style="background-color:black;">
+                  <li><a href="course1.html" target="null" style="color:grey;">BBA</a></li>
+                  <li><a href="course1.html" target="null" style="color:grey;">MBA</a></li>
+                  <li><a href="course1.html" target="null"style="color:grey;">ACF</a></li>
+                  </ul>
+              </li>
+              
+              <li class="dropdown dropdown-submenu" >
+                <a href="course1.html" target="null" class="dropdown-toggle" data-toggle="dropdown" style="color:grey;">SMME</a>
+                <ul class = "dropdown-menu" style="background-color:black;">
+                    <li><a href="course1.html" target="null" style="color:grey;">Mechanical Engineering</a></li>
+                    <li><a href="course1.html" target="null" style="color:grey;">Megatronic Engineering</a></li>
+                    <li><a href="course1.html" target="null"style="color:grey;">Material Engineering</a></li>
+                </ul>
+              </li>
+              
+              <li class="dropdown dropdown-submenu" >
+                <a href="course1.html" target="null" class="dropdown-toggle" data-toggle="dropdown" style="color:grey;">NICE</a>
+                <ul class = "dropdown-menu" style="background-color:black;">
+                    <li><a href="course1.html" target="null" style="color:grey;">Civil Engineering</a></li>
+                    <li><a href="course1.html" target="null" style="color:grey;">Road Engineering</a></li>
+                    <li><a href="course1.html" target="null"style="color:grey;">Info Engineering</a></li>
+                </ul>
+              </li>
+        
+              <li class="dropdown dropdown-submenu" >
+                <a href="course1.html" target="null" class="dropdown-toggle" data-toggle="dropdown" style="color:grey;">SNS</a>
+                <ul class = "dropdown-menu" style="background-color:black;">
+                    <li><a href="course1.html" target="null" style="color:grey;">Physics</a></li>
+                    <li><a href="course1.html" target="null" style="color:grey;">Maths</a></li>
+                    <li><a href="course1.html" target="null"style="color:grey;">Fluid Physics</a></li>
+                </ul>
+              </li>
+              
+              <li class="dropdown dropdown-submenu" >
+                <a href="course1.html" target="null" class="dropdown-toggle" data-toggle="dropdown" style="color:grey;">SCME</a>
+              </li>
+              
+              <li class="dropdown dropdown-submenu" >
+                <a href="course1.html" target="null" class="dropdown-toggle" data-toggle="dropdown" style="color:grey;">S3H</a>
+              </li>
+            </ul>
+          </li>
+          <li><a href="portal.html">News Portal</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul><!-- Login Button !-->
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <ul class="nav">
+              <li>
+                <form id="searchContainer">
+                  <input list="list" id="name" placeholder="Search.." class="search" onclick="search()">
+                  <datalist id="list"> 
+                  </datalist>
+                </form>
+              </li>
+              <li>
+                <button style="margin:0px;margin:12px 0px 12px 0px ;padding: 0px;" class="searchGo">>></button>
+              </li>
+            </ul>
+          </li>
+          <li><a data-toggle="modal" data-target="#signupModal"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+          <li><a data-toggle="modal" data-target="#loginModal"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Login Form !-->
+  <div id="loginModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"> &times;</button>
+          <h3><b>Login<b></h3sss>
+        </div>
+        <div class="modal-body">
+        <!-- Form for collection of data from the sign-up form -->
+          <form class="form-inline" method = 'post' action = ''>
+            <div class="form-group">
+              <label class="sr-only" for="email">Username</label>
+              <input type="text" class="form-control input-sm" placeholder="username" id="username" name="username" required>
+            </div>
+            <div class="form-group">  
+              <label class="sr-only" for="password" >Password</label>
+              <input type="password" class="form-control input-sm" placeholder="Password" id="password" name="password" required>
+            </div>
+            <button type="submit" class="btn btn-info btn-xs">Sign in</button>
+            </Br></Br>
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" id = "rememberme" name = "rememberme"> Remember me
+              </label>
+            </div>  
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SignUp Form !-->
+  <div id="signupModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"> &times;</button>
+          <h3><b>Sign Up</b></h3>
+        </div>
+
+        <div class="modal-body">
+          <form class="form-inline"  method="post" action=''>
+            <h5>
+              <div class="form-group" id = "fn">
+                  <b>Name</b>
+                  <label class="sr-only" for="fname">First Name</label>
+                  <input type="text" class="form-control input-sm" placeholder="First Name" id="fname" name="fname" required>
+              </div>
+              &nbsp;
+              &nbsp;
+              <div class="form-group" id ="ln">
+                <label class="sr-only" for="lname">Last Name</label>
+                <input type="text" class="form-control input-sm" placeholder="Last Name" id="lname" name="lname">
+              </div>
+            </h5>
+            </Br>
+            </Br>
+            <h5>
+              <div class="form-group" style="margin-left: 0cm">
+                <b>Username</b>
+                <label class="sr-only" for="username1">Username</label>
+                <input type="text" class="form-control input-sm" placeholder="username" id="username1" name="username1" required>
+                &nbsp 
+                <a href="#" data-toggle="tooltip" title="No spaces should be included">
+                  <span class="glyphicon glyphicon-question-sign" aria-hidden="true">
+                  </span>
+                </a>
+              </div>
+            </h5>
+            </Br>
+            </Br>
+            <div class="form-group" id = "em">
+              <h5>
+                <b>E-mail</b>
+                <label class="sr-only" for="email">Email</label>
+                <input type="text" class="form-control input-sm" placeholder="Email" id="email" name="email" required>
+              </h5>
+            </div>
+            </Br>
+            </Br>
+            <h5>
+              <div class="form-group" id = "pw">
+                  <b>Pasword</b>
+                  <label class="sr-only" for="password1" >Password</label>
+                  <input type="password" class="form-control input-sm" placeholder="Password" id="password1" name="password1" onkeyup = "func_p()" required>
+              </div>
+              &nbsp;
+              &nbsp;
+              <div class="form-group">  
+                <label class="sr-only" for="repassword" style="margin-left: 0cm">Re-Enter Password</label>
+                <input type="password" class="form-control input-sm" placeholder="Re-Enter Password" id="repassword" name="repassword" onkeyup = "pass_match()" required>
+              </div>
+            </h5>
+            </Br>
+            <p id = "demo1" style= "display:inline; margin-left: 1.7cm;"></p>
+            <p style= "display:inline; margin-left: 0cm" id = "demo"></p>
+            <p style= "display:inline; margin-left: 2.5cm; color:red" id = "demo2"></p>
+            <p style= "display:inline; margin-left: 2.5cm; color:blue" id = "demo3"></p>
+            </Br></Br>
+            <div class="form-group">
+              <input type="checkbox" id="accept-terms">
+              <label for="accept-terms">I agree to the 
+                <a href="#" title="User Terms and Conditions" data-toggle="popover" data-placement="right" data-content="Personal information collection
+  Using personal information
+  Securing your data
+  Cross-border data transfers
+  Updating this statement
+  Other websites
+  Contact
+  This privacy statement">Terms</a>
+              </label>
+            </div>
+            </Br></Br>
+            <button type="submit" class="btn btn-info btn-xs">Sign Up</button>
+            </Br>
+            </Br>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+    
+<!-- Crousal -->
+<div id="n1" class = "namee"  style="text-align:center;margin-top:150px">
+<h1>LINUST</h1>
+    </div>
+</body>
+<nav id="myfooter" class="navbar navbar-default navbar-inverse navbar-fixed-bottom">
+    <div class="container" style="width:100%;padding:0px;">
+        <div class="navbar-header">
+            <ul>
+              <span class="navbar-brand"><a href="about.html" style="text-decoration: none !important;">About Us</a></span>
+              <span class="navbar-brand"><a href="contact.html" style="text-decoration: none !important;">Contact Us</a></span>
+            </ul>
+        </div>
+
+        <p class="navbar-text navbar-right" style="font-weight: normal !important;font-size: 12;">BESE-6B - SEECS &emsp;|&emsp;Ahmed Rana &emsp; Sohaib Zahid &emsp; Mana Tariq &emsp; Zara Malik &emsp; </p>
+    </div>
+</nav>
+</html>
