@@ -175,8 +175,8 @@ div.comment p.commenttext{
 
 /* Standard syntax */
 @keyframes example {
-    from {color: #740023;}
-    to {color:  #000080;}
+    from {color: #696969;}
+    to {color:  #000000;}
 }
 
 @media (max-width: 856px) {
@@ -193,6 +193,7 @@ div.comment p.commenttext{
 
 
 @media (max-width: 768px) {
+
   .navbar-nav  {
     width:50%;
    display: inline;
@@ -206,6 +207,7 @@ div.comment p.commenttext{
   .dropdown-submenu:onclick>.dropdown-menu {
     display: block;
   }
+  
    .navbar-default .navbar-nav .open .dropdown-menu > li > a {
      color: #333;
    }

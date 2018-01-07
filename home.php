@@ -1,6 +1,6 @@
 <?php
   session_start();
-
+   error_reporting(E_ERROR | E_PARSE);
   // If the session vars aren't set, try to set them with a cookie
   if (!isset($_SESSION['user_id'])) {
     if (isset($_COOKIE['user_id']) && isset($_COOKIE['username'])) {
@@ -44,6 +44,57 @@ $(document).ready(function(){
 </script>
 
 </head>
+<?php
+  require_once('connectvars.php');
+  
+  // Start the session
+  session_start();
+
+  // Clear the error message
+  $error_msg = "";
+
+  // If the user isn't logged in, try to log them in
+  if (!isset($_SESSION['user_id'])) {
+    if (isset($_POST['submit'])) {
+      // Connect to the database
+      $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+
+      // Grab the user-entered log-in data
+      $user_username = mysqli_real_escape_string($dbc, trim($_POST['username']));
+      $user_password = mysqli_real_escape_string($dbc, trim($_POST['password']));
+
+      if (!empty($user_username) && !empty($user_password)) {
+        // Look up the username and password in the database
+        $query = "SELECT user_id, username FROM users WHERE username = '$user_username' AND password = SHA('$user_password')";
+        $data = mysqli_query($dbc, $query);
+
+        if (mysqli_num_rows($data) == 1) {
+          // The log-in is OK so set the user ID and username session vars (and cookies), and redirect to the home page
+          $row = mysqli_fetch_array($data);
+          $_SESSION['user_id'] = $row['user_id'];
+          $_SESSION['username'] = $row['username'];
+          setcookie('user_id', $row['user_id'], time() + (60 * 60 * 24 * 30));    // expires in 30 days
+          setcookie('username', $row['username'], time() + (60 * 60 * 24 * 30));  // expires in 30 days
+		  // Redirect to the home page
+			$home_url = 'http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/home.php';
+			header('Location: ' . $home_url);
+         
+        }
+        else {
+          // The username/password are incorrect so set an error message
+          
+          //<h5 style = 'color:white; margin-top:1cm; margin-bottom:-2cm; float:right'>Sorry, you must enter a valid username and password to log in.</h5>
+       echo "<script>alert('Sorry, you must enter a valid username and password to log in');</script>";
+		}
+      }
+      else {
+        // The username/password weren't entered so set an error message
+        echo "<span style = 'color:white; margin-top:3cm;'>Sorry, you must enter your username and password to log in.</span>";
+      }
+    }
+  }
+?>
+
 <body onload = "typeWriter()">
 <section id="team" class="section gray-bg" style="background-image:url(b1.jpg); background-size:cover;";">
   <!-- Nav Bar -->
@@ -59,7 +110,7 @@ $(document).ready(function(){
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav">
-          <li ><a href="home.html"><span class="glyphicon glyphicon-home" aria-hidden="true"></span><b>&nbsp Home</b></a></li>
+          <li ><a href="home.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span><b>&nbsp Home</b></a></li>
           <li class = "dropdown">
             <a href="#intro" class="dropdown-toggle" data-toggle="dropdown" style="color:white;">Schools</a>
             <ul class="dropdown-menu" style="background-color:black">
@@ -131,17 +182,26 @@ $(document).ready(function(){
                 </form>
               </li>
               <li>
-                <button style="margin:0px;margin:12px 0px 12px 0px ;padding: 0px;" class="searchGo">>></button>
+                <button style="margin:0px;margin:12px 0px 12px 0px ;padding: 0px;" class="searchGo">>> </button>
+				&nbsp
               </li>
             </ul>
-          </li>
-          <li><a data-toggle="modal" data-target="#signupModal"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+          </li><?php if (isset($_SESSION['username'])){  ?>
+		  
+		  <li><span class="glyphicon glyphicon-edit" style = "color:white; margin-top: .5cm;"></span>
+				<a href="viewprofile.php" style="margin-top: -.75cm; color:white;"><?php echo '&nbsp'.strtoupper($_SESSION['username']).''; ?>
+		  </li>
+		  
+         <?php } else {?>
+		  <li><a data-toggle="modal" data-target="#signupModal"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
           <li><a data-toggle="modal" data-target="#loginModal"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+		 <?php } ?>
         </ul>
       </div>
     </div>
   </nav>
 
+  
   <!-- Login Form !-->
   <div id="loginModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
@@ -152,7 +212,7 @@ $(document).ready(function(){
         </div>
         <div class="modal-body">
         <!-- Form for collection of data from the sign-up form -->
-          <form class="form-inline" method = 'post' action = 'login.php'>
+          <form class="form-inline" method = 'post' action = ''>
             <div class="form-group">
               <label class="sr-only" for="email">Username</label>
               <input type="text" class="form-control input-sm" placeholder="username" id="username" name="username" required>
@@ -162,6 +222,7 @@ $(document).ready(function(){
               <input type="password" class="form-control input-sm" placeholder="Password" id="password" name="password" required>
             </div>
             <input type="submit" value = "Sign in" name = "submit" class="btn btn-info btn-xs">
+			
             </Br></Br>
             <div class="checkbox">
               <label>
@@ -177,6 +238,52 @@ $(document).ready(function(){
 
   
   <!-- SignUp Form !-->
+<?php
+  require_once('appvars.php');
+  require_once('connectvars.php');
+
+  // Connect to the database
+  $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+
+  if (isset($_POST['submit'])) {
+    // Grab the profile data from the POST
+    $username = mysqli_real_escape_string($dbc, trim($_POST['username1']));
+    $password1 = mysqli_real_escape_string($dbc, trim($_POST['password1']));
+    $password2 = mysqli_real_escape_string($dbc, trim($_POST['repassword']));
+    $email = mysqli_real_escape_string($dbc, trim($_POST['email']));
+    $fname = mysqli_real_escape_string($dbc, trim($_POST['fname']));
+    $lname = mysqli_real_escape_string($dbc, trim($_POST['lname']));
+
+    if (!empty($username) && !empty($password1) && !empty($password2) && ($password1 == $password2) && (!empty($email)) && (!empty($fname)) && (!empty($lname)) ) {
+      // Make sure someone isn't already registered using this username
+      $query = "SELECT * FROM users WHERE username = '$username'";
+      $data = mysqli_query($dbc, $query);
+
+      if (mysqli_num_rows($data) == 0) {
+        // The username is unique, so insert the data into the database
+        $query = "INSERT INTO users (username, password, join_date, first_name, last_name, email) VALUES ('$username', SHA('$password1'), NOW(), '$fname', '$lname', '$email')";
+        mysqli_query($dbc, $query);
+
+        // Confirm success with the user
+        echo '<p>Your new account has been successfully created. You\'re now ready to <a href="login.php">log in</a>.</p>';
+        mysqli_close($dbc);
+      }
+      else {
+        // An account already exists for this username, so display an error message
+        echo '<p class="error">An account already exists for this username. Please use a different address.</p>';
+        $username = "";
+      }
+    }
+    else {
+      echo '<p class="error">You must enter all of the sign-up data, including the desired password twice.</p>';
+    }
+  }
+
+  mysqli_close($dbc);
+
+?>
+
+ 
   <div id="signupModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -186,7 +293,7 @@ $(document).ready(function(){
         </div>
 
         <div class="modal-body">
-          <form class="form-inline"  method="post" action="signup.php">
+          <form class="form-inline"  method="post" action="">
             <h5>
               <div class="form-group" id = "fn">
                   <b>Name</b>
@@ -270,9 +377,7 @@ $(document).ready(function(){
 <div class = "namee" id = "n1">
 <h1>LINUST</h1>
 <h2 id = "n2"></h2>
-
 </div>
-
 
 <!-- Crousal -->
 <div class = "container">
@@ -450,7 +555,8 @@ $(document).ready(function(){
               <span class="navbar-brand"><a href="about.html" style="text-decoration: none !important;">About Us</a></span>
 
 				<span class="navbar-brand">
-						<a href="logout.php" class="btn btn-white-fill" style="margin-top: -0.1cm; text-decoration: none">LOGOUT<?php print "Logout ("  . $_SESSION['username'] . ")";  ?></a>
+						<a href="logout.php" class="btn btn-white-fill" style="margin-top: -0.1cm; text-decoration: none">LOGOUT<?php if (isset($_SESSION['username'])) {
+						echo "<span style = 'color:white'> ("  . $_SESSION['username'] . ")</span>"; } ?></a>
 																																		
 				</span>
 				

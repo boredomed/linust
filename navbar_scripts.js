@@ -146,7 +146,7 @@ var password = document.getElementById("password1")
 
 
 var i = 0;
-var txt = 'LINE NUST WITH INOVATION';
+var txt = 'LINE NUST WITH INNOVATION';
 var speed = 50;
 
 function typeWriter() {
