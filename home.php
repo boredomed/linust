@@ -20,6 +20,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="navbar_scripts.js"></script>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_ZLiuoiFRFyTjcOMLxGiFWE9A9HXcYsI&callback=initMap">
     </script>
@@ -29,6 +30,26 @@
   <link rel="stylesheet" type="text/css" href="css/cardio.css">
   
   <link rel="stylesheet" type="text/css" href="stylesheet1.css">
+   <script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-111996482-1', 'auto');
+ga('send', 'pageview');
+</script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-111996482-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-111996482-1');
+</script>
+
   <div id="fb-root"></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
@@ -363,9 +384,13 @@ $(document).ready(function(){
   Contact
   This privacy statement">Terms</a>
               </label>
+              <div class="g-recaptcha" data-sitekey="6Lfcoj8UAAAAAF9XCT-RWY4Dm_dHTi3iYZYreEzm"></div>
+            </div>
             </div>
             </Br></Br>
             <input type="submit" name = "submit" value = "Sign Up" class="btn btn-info btn-xs">
+            
+<div align="center" class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>
             </Br>
             </Br>
           </form>

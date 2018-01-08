@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_ZLiuoiFRFyTjcOMLxGiFWE9A9HXcYsI&callback=initMap">
     </script>
@@ -19,7 +19,15 @@
     <script src="navbar_scripts.js"></script>
   <link rel="stylesheet" type="text/css" href="stylesheet1.css">
 
-	
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-111996482-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-111996482-1');
+</script>
 <script>
 
 
@@ -253,6 +261,8 @@ function typeWriter() {
   Contact
   This privacy statement">Terms</a>
               </label>
+                <div class="g-recaptcha" data-sitekey="6Lfcoj8UAAAAAF9XCT-RWY4Dm_dHTi3iYZYreEzm"></div>
+            </div>
             </div>
             </Br></Br>
             <button type="submit" class="btn btn-info btn-xs">Sign Up</button>

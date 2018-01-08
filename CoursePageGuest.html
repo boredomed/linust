@@ -7,6 +7,7 @@
     <!-- for navigation bar -->
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
       <!-- for js --> 
+       <script src="https://www.google.com/recaptcha/api.js" async defer></script>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
       <!-- external stylesheet -->
     <link rel="stylesheet" type="text/css" href="stylesheet1.css" />
@@ -14,7 +15,15 @@
     <script src="navbar_scripts.js"></script>
     <style type="text/css"></style>
 </head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-111996482-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
+  gtag('config', 'UA-111996482-1');
+</script>
 <script>
 $(document).ready(function(){
     $("div.headers h3").click(function(){
@@ -41,7 +50,7 @@ $(document).ready(function(){
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav">
-          <li ><a href="home.html"><span class="glyphicon glyphicon-home" aria-hidden="true"></span><b>&nbsp Home</b></a></li>
+          <li ><a href="home.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span><b>&nbsp Home</b></a></li>
           <li class = "dropdown">
             <a href="#intro" class="dropdown-toggle" data-toggle="dropdown" style="color:white;">Schools</a>
             <ul class="dropdown-menu" style="background-color:black">
@@ -236,6 +245,8 @@ $(document).ready(function(){
   Contact
   This privacy statement">Terms</a>
               </label>
+                <div class="g-recaptcha" data-sitekey="6Lfcoj8UAAAAAF9XCT-RWY4Dm_dHTi3iYZYreEzm"></div>
+            </div>
             </div>
             </Br></Br>
             <button type="submit" class="btn btn-info btn-xs">Sign Up</button>
