@@ -1,62 +1,48 @@
-
-        var  my_data = {"Departments": [
-     {"Name": "Computer Science", "Link": "this is link for CS" ,
-        "Courses": [{"Name": "Database Systems", "Link": "This is link for DBS"},
-         {"Name": "Adavanced Programming", "Link": "This is link for AP"},
-          {"Name": "Artificial Intellegence", "Link":"This is link for AI"}]},
-     {"Name": "Software Engineering", "Link": "this is link for SE" ,
-        "Courses": [{"Name": "Datastructures and Algorithms", "Link": "This is link for DSA"},
-         {"Name": "Software Design and Architecture", "Link": "This is link for SDA"},
-          {"Name": "Web Development", "Link":"This is link for Web"}]},
-     {"Name": "Eelectrical Enginerring", "Link": "this is link for EE" ,
-        "Courses": [{"Name": "Digital Logic Design", "Link": "This is link for DLD"},
-         {"Name": "Computer Networking", "Link": "This is link for CN"},
-          {"Name": "Basic Electronics", "Link":"This is link for BE"}]}
-]};
-                
-
-        function search()
+ function search()
         {   
-            console.log("Enter function");
+            $.getJSON("departments.json", function(result){
+            //console.log("Enter function");
             var wid = $("#name").width();
             $("#list").width(wid);
+            //document.getElementById('name').addEventListener('input', my_input());
             var name = document.getElementById("name").value.toLowerCase();
             //console.log(name);
             //console.log(dept);
 
-            var length = my_data.Departments.length;
+            var length = result.Departments.length;
             var flag = 0;
             var link;
             var course;
 
-            console.log("About to enter loop");
+            //console.log("About to enter loop");
             var options = "";
 
             for (var i = 0; i < length; i++)
             {
                 //console.log(i);
-                var students = my_data.Departments[i].Courses.length;
+                var students = result.Departments[i].Courses.length;
                 //console.log(students);
                 for (var x =0; x < students; x++)
                 {
                     //console.log(my_data.Departments[i].Courses[x]);
-                    var str=my_data.Departments[i].Courses[x].Name.toLowerCase();
+                    var str=result.Departments[i].Courses[x].Name.toLowerCase();
                 if(str.includes(name))
                 {
-                    options += '<option value="'+my_data.Departments[i].Courses[x].Name+'" />';
+                    options += '<option value="'+result.Departments[i].Courses[x].Name+'" />';
 
                     flag = 1;
                     
                 }
                 }
             }
-            console.log(flag);
+            //console.log(flag);
             if(flag != 0){
                   document.getElementById('list').innerHTML = options;
             } 
+            //console.log($("#list option:selected").val())
             
-        }
-
+        });
+    }
 
 
 
@@ -210,4 +196,112 @@ $(document).ready(function(){
       $("#myfooter").removeClass("navbar navbar-default navbar-fixed-bottom");
     else
       $("#myfooter").addClass("navbar navbar-default navbar-fixed-bottom");
+});
+
+
+function div_show() {
+document.getElementById('my_div').style.display = "block";
+}
+
+function div_hide(){
+document.getElementById('my_div').style.display = "none";
+}
+
+
+function div_show1() {
+document.getElementById('my_div1').style.display = "block";
+}
+
+function div_hide1(){
+document.getElementById('my_div1').style.display = "none";
+}
+
+$(document).ready(function(e){
+    $("#fupForm").on('submit', function(e){
+        e.preventDefault();
+        $.ajax({
+            type: 'POST',
+            url: 'submit.php',
+            data: new FormData(this),
+            contentType: false,
+            cache: false,
+            processData:false,
+            /*
+            beforeSend: function(){
+                $('.submitBtn').attr("disabled","disabled");
+                $('#fupForm').css("opacity",".5");
+            },
+            */
+            success: function(msg){
+                $('.statusMsg').html('');
+                console.log('this here');
+                if(msg == 'ok'){
+                    $('#fupForm')[0].reset();
+                    $('.statusMsg').html('<span style="font-size:18px;color:#34A853">File Uploaded.</span>');
+                }else{
+                 //   $('.statusMsg').html('<span style="font-size:18px;color:red">File Upload Failed.</span>');
+                    $('.statusMsg').html(msg);
+                }
+                $('#fupForm').css("opacity","");
+                $(".submitBtn").removeAttr("disabled");
+            }
+        });
+    });
+  });
+    
+    //file type validation
+    $("#file").change(function() {
+        var file = this.files[0];
+        var imagefile = file.type;
+        var match= 'application/pdf';
+        if(!((imagefile==match))){
+            alert('Please select a valid image file (PDF).');
+            $("#file").val('');
+            return false;
+        }
+    });
+
+//end here
+
+$(document).ready(function(e){
+    $("#URLForm").on('submit', function(e){
+        e.preventDefault();
+                var name = $.trim($('#url').val());
+        //alert(name);
+        if(name != ""){
+        
+        $.ajax({
+            type: 'POST',
+            url: 'submit_url.php',
+            data: new FormData(this),
+            contentType: false,
+            cache: false,
+            processData:false,
+            /*
+            beforeSend: function(){
+                $('.submitBtn').attr("disabled","disabled");
+                $('#fupForm').css("opacity",".5");
+            },
+            */
+            success: function(msg){
+                $('.statusMsg1').html('');
+                if(msg == 'ok'){
+                    $('#URLForm')[0].reset();
+                    $('.statusMsg1').html('<span style="font-size:18px;color:#34A853">Form data submitted successfully.</span>');
+                    div_hide1();
+                }else{
+                    $('.statusMsg1').html(msg);
+                }
+                $('#URLForm').css("opacity","");
+                $(".submitBtn").removeAttr("disabled");
+            }
+    
+        });
+    }
+    else{
+           $('#URLForm')[0].reset();
+                    $('.statusMsg1').html('<span style="font-size:18px;color:#34A853"></span>');
+    }
+    });
+
 });

@@ -25,6 +25,13 @@
     $fname = mysqli_real_escape_string($dbc, trim($_POST['fname']));
     $lname = mysqli_real_escape_string($dbc, trim($_POST['lname']));
 
+    /*
+      CREATE DEFINER=`root`@`localhost` PROCEDURE `get_all_user`()
+      BEGIN
+      SELECT user_id, email, first_name, last_name, join_date FROM users;
+      END
+    */
+
     if (!empty($username) && !empty($password1) && !empty($password2) && ($password1 == $password2) && (!empty($email)) && (!empty($fname)) && (!empty($lname)) ) {
       // Make sure someone isn't already registered using this username
       $query = "SELECT * FROM users WHERE username = '$username'";

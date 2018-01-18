@@ -1,0 +1,186 @@
+
+creational script
+/*
+
+CREATE DATABASE linust;
+
+USE linust;
+
+CREATE TABLE users( user_id INT AUTO_INCREMENT, username VARCHAR(32),
+ password VARCHAR(40), join_date DATETIME, first_name VARCHAR(32),
+ last_name VARCHAR(32), gender VARCHAR(1), birthdate DATE, department VARCHAR(32),
+ program VARCHAR(32), picture VARCHAR(32), email VARCHAR(32), no_of_uploads int unsigned default 0,no_of_comments int unsigned default 0, PRIMARY KEY (user_id) );
+
+
+CREATE TABLE users(
+	user_id int unsigned not null auto_increment,
+        first_name varchar(32) not null,
+        last_name varchar(50) not null,
+        username varchar(20) not null unique,
+        password varchar(40) not null,
+	join_date DATETIME,
+        email varchar(100) not null unique,
+	gender VARCHAR(1), 
+	birthdate DATE,
+	picture VARCHAR(32),
+	department VARCHAR(32),
+ 	program VARCHAR(32),
+        no_of_uploads int unsigned default 0,
+        no_of_comments int unsigned default 0,
+        primary key (user_id)
+);
+
+
+CREATE TABLE users(
+
+	user_id int unsigned not null auto_increment,
+
+        fname varchar(50) not null,
+
+        lname varchar(50) not null,
+
+        username varchar(20) not null unique,
+
+        password varchar(50) not null,
+
+        email varchar(100) not null unique,
+
+        no_of_uploads int unsigned default 0,
+
+        no_of_comments int unsigned default 0,
+
+        primary key (user_id)
+
+);
+        
+
+CREATE TABLE comments(
+
+	user_id int unsigned not null,
+
+        id int unsigned not null auto_increment,
+
+	course_name varchar(100) not null,
+
+        c_date date not null,
+
+        comment longtext not null,
+
+        FOREIGN KEY (user_id) REFERENCES users(user_id),
+
+        primary key(id)
+
+);
+
+
+create table file_upload(
+
+	file_id int unsigned not null auto_increment,
+
+        user_id int unsigned not null,
+
+        file_name varchar(100) not null,
+
+        course_name varchar(100) not null,
+
+        f_date date not null,
+
+        status boolean default 0,
+
+        FOREIGN KEY (user_id) REFERENCES users(user_id),
+
+        primary key(file_id),
+
+        UNIQUE KEY (file_name, course_name)
+
+
+);
+
+
+create table video_upload(
+	
+	v_id int unsigned not null auto_increment,
+
+        user_id int unsigned not null,
+
+        v_name varchar(100) not null,
+
+        course_name varchar(100) not null,
+
+        v_date date not null,
+
+        status boolean default 0,
+
+        FOREIGN KEY (user_id) REFERENCES users(user_id),
+
+        primary key(v_id),
+
+        unique key(v_name,course_name)
+
+);
+
+
+create table url_upload(
+
+	url_id int unsigned not null auto_increment,
+
+        user_id int unsigned not null,
+
+        url_link varchar(100) not null,
+
+        course_name varchar(100) not null,
+
+        u_date date not null,
+
+        status boolean default 0,
+
+        FOREIGN KEY (user_id) REFERENCES users(user_id),
+
+        primary key(url_id),
+
+        unique key(url_link, course_name)
+
+);
+
+
+
+
+//username already exists
+select user_id from users where username = "mrana";
+
+//email already exists
+select user_id from users where email = ;
+
+//for verification
+if(select user_id from users where username = "mrana";)
+{
+	password= select password from users where username = "mrana";
+	if(password = given password){
+	//accept login
+	}
+}
+
+//insert new user
+insert into users (first_name, last_name, username, password, email) values ('mana', 'tariq', 'mtariq', 'alpha12', 'mtariq@gmail.com');
+
+//insert new file
+insert into file_upload (user_id, file_name, course_name, f_date) values (1, 'myfile.pdf', 'dbs', curdate())
+
+//url
+insert into url_upload (user_id, url_link, course_name, u_date) values (1, 'www.youtube.com', 'dsa', curdate());
+
+//video
+insert into video_upload (user_id, v_name, course_name, v_date) values (1, 'intro to programing', 'dsa', curdate());
+
+//comment
+insert into comments (user_id, course_name, c_date, comment) values (1, 'dbs', curdate(), 'This is very helpful material');
+
+
+//increment no of comments or uploads
+UPDATE users
+
+   SET no_of_uploads = no_of_uploads + 1
+
+ WHERE username = 'mtariq'
+
+//replace no_of_uploads by no_of_comments

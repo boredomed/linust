@@ -9,57 +9,38 @@
     }
   }
 ?>
-
 <html>
-	<head>
+  <head>
     <meta charset="uff-8">
-    <title>Home</title>
+    <title>About Us</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="navbar_scripts.js"></script>
-  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-  <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_ZLiuoiFRFyTjcOMLxGiFWE9A9HXcYsI&callback=initMap">
-    </script>
+   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+ <script src="navbar_scripts.js"></script>
+
   
-	<link rel="stylesheet" type="text/css" href="css/animate.css">
+  <link rel="stylesheet" type="text/css" href="css/animate.css">
   <!-- Normalize -->
-  <link rel="stylesheet" type="text/css" href="cardioo.css">
+  <link rel="stylesheet" type="text/css" href="css/cardio.css">
   
+  <link rel="stylesheet" type="text/css" href="aboutcontact.css">
   <link rel="stylesheet" type="text/css" href="stylesheet1.css">
-   <script>
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-ga('create', 'UA-111996482-1', 'auto');
-ga('send', 'pageview');
+  
+<script>
+$(document).ready(function(){
+    $('[data-toggle="popover"]').popover();   
+});
 </script>
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111996482-1"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'UA-111996482-1');
-</script>
-
-  <div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10&appId=1770566756582849";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-<script>
-$(document).ready(function(){
-    $('[data-toggle="popover"]').popover();   
-});
 </script>
 
 </head>
@@ -89,8 +70,8 @@ $(document).ready(function(){
           $_SESSION['username'] = $row['username'];
           setcookie('user_id', $row['user_id'], time() + (60 * 60 * 24 * 30));    // expires in 30 days
           setcookie('username', $row['username'], time() + (60 * 60 * 24 * 30));  // expires in 30 days
-		  // Redirect to the home page
-			$home_url = 'http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/home.php';
+      // Redirect to the home page
+      $home_url = 'http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/home.php';
          
         }
         else {
@@ -98,7 +79,7 @@ $(document).ready(function(){
           
           //<h5 style = 'color:white; margin-top:1cm; margin-bottom:-2cm; float:right'>Sorry, you must enter a valid username and password to log in.</h5>
        echo "<script>alert('Sorry, you must enter a valid username and password to log in');</script>";
-		}
+    }
       }
       else {
         // The username/password weren't entered so set an error message
@@ -107,7 +88,6 @@ $(document).ready(function(){
     }
   }
 ?>
-
 <body onload = "typeWriter()">
 <section id="team" class="section gray-bg" style="background-image:url(b1.jpg); background-size:cover;";">
   <!-- Nav Bar -->
@@ -123,7 +103,7 @@ $(document).ready(function(){
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav">
-          <li ><a href="home.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span><b>&nbsp Home</b></a></li>
+          <li ><a href="home.html"><span class="glyphicon glyphicon-home" aria-hidden="true"></span><b>&nbsp Home</b></a></li>
           <li class = "dropdown">
             <a href="#intro" class="dropdown-toggle" data-toggle="dropdown" style="color:white;">Schools</a>
             <ul class="dropdown-menu" style="background-color:black">
@@ -182,6 +162,7 @@ $(document).ready(function(){
             </ul>
           </li>
           <li><a href="portal.php">News Portal</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
         </ul><!-- Login Button !-->
         <ul class="nav navbar-nav navbar-right">
           <li>
@@ -194,25 +175,17 @@ $(document).ready(function(){
                 </form>
               </li>
               <li>
-                <button style="margin:0px;margin:12px 0px 12px 0px ;padding: 0px;" class="searchGo">>> </button>
-				&nbsp
+                <button style="margin:0px;margin:12px 0px 12px 0px ;padding: 0px;" class="searchGo">>></button>
               </li>
             </ul>
-          </li><?php if (isset($_SESSION['username'])){  ?>
-		  
-		  <li><span class="glyphicon glyphicon-edit" style = "color:white; margin-top: .5cm;"></span>
-				<a href="viewprofile.php" style="margin-top: -.75cm; color:white;"><?php echo '&nbsp'.strtoupper($_SESSION['username']).''; ?>
-		  </li>
-		  
-         <?php } else {?>
-		  <li><a data-toggle="modal" data-target="#signupModal"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+          </li>
+          <li><a data-toggle="modal" data-target="#signupModal"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
           <li><a data-toggle="modal" data-target="#loginModal"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-		 <?php } ?>
         </ul>
       </div>
     </div>
   </nav>
-  
+
   <!-- Login Form !-->
   <div id="loginModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
@@ -232,60 +205,20 @@ $(document).ready(function(){
               <label class="sr-only" for="password" >Password</label>
               <input type="password" class="form-control input-sm" placeholder="Password" id="password" name="password" required>
             </div>
-            <input type="submit" value = "Sign in" name = "submit" class="btn btn-info btn-xs">
-			
+            <button type="submit" class="btn btn-info btn-xs">Sign in</button>
             </Br></Br>
             <div class="checkbox">
               <label>
                 <input type="checkbox" id = "rememberme" name = "rememberme"> Remember me
-              </label><br><br>
-			  <div align="center" class="fb-login-button" data-max-rows="1" data-size="small" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>
+              </label>
             </div>  
           </form>
         </div>
       </div>
     </div>
   </div>
-  
+
   <!-- SignUp Form !-->
-<?php
-  require_once('appvars.php');
-  require_once('connectvars.php');
-  // Connect to the database
-  $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
-  if (isset($_POST['submit'])) {
-    // Grab the profile data from the POST
-    $username = mysqli_real_escape_string($dbc, trim($_POST['username1']));
-    $password1 = mysqli_real_escape_string($dbc, trim($_POST['password1']));
-    $password2 = mysqli_real_escape_string($dbc, trim($_POST['repassword']));
-    $email = mysqli_real_escape_string($dbc, trim($_POST['email']));
-    $fname = mysqli_real_escape_string($dbc, trim($_POST['fname']));
-    $lname = mysqli_real_escape_string($dbc, trim($_POST['lname']));
-    if (!empty($username) && !empty($password1) && !empty($password2) && ($password1 == $password2) && (!empty($email)) && (!empty($fname)) && (!empty($lname)) ) {
-      // Make sure someone isn't already registered using this username
-      $query = "SELECT * FROM users WHERE username = '$username'";
-      $data = mysqli_query($dbc, $query);
-      if (mysqli_num_rows($data) == 0) {
-        // The username is unique, so insert the data into the database
-        $query = "INSERT INTO users (username, password, join_date, first_name, last_name, email) VALUES ('$username', SHA('$password1'), NOW(), '$fname', '$lname', '$email')";
-        mysqli_query($dbc, $query);
-        // Confirm success with the user
-        echo '<p>Your new account has been successfully created. You\'re now ready to <a href="login.php">log in</a>.</p>';
-        mysqli_close($dbc);
-      }
-      else {
-        // An account already exists for this username, so display an error message
-        echo '<p class="error">An account already exists for this username. Please use a different address.</p>';
-        $username = "";
-      }
-    }
-    else {
-      echo '<p class="error">You must enter all of the sign-up data, including the desired password twice.</p>';
-    }
-  }
-  mysqli_close($dbc);
-?>
- 
   <div id="signupModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -293,8 +226,9 @@ $(document).ready(function(){
           <button type="button" class="close" data-dismiss="modal"> &times;</button>
           <h3><b>Sign Up</b></h3>
         </div>
+
         <div class="modal-body">
-          <form class="form-inline"  method="post" action="">
+          <form class="form-inline"  method="post" action=''>
             <h5>
               <div class="form-group" id = "fn">
                   <b>Name</b>
@@ -364,13 +298,9 @@ $(document).ready(function(){
   Contact
   This privacy statement">Terms</a>
               </label>
-              <div class="g-recaptcha" data-sitekey="6Lfcoj8UAAAAAF9XCT-RWY4Dm_dHTi3iYZYreEzm"></div>
-            </div>
             </div>
             </Br></Br>
-            <input type="submit" name = "submit" value = "Sign Up" class="btn btn-info btn-xs">
-            
-<div align="center" class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>
+            <button type="submit" class="btn btn-info btn-xs">Sign Up</button>
             </Br>
             </Br>
           </form>
@@ -378,180 +308,46 @@ $(document).ready(function(){
       </div>
     </div>
   </div>
-	  
-<div class = "namee" id = "n1">
-<h1>LINUST</h1>
-<h2 id = "n2"></h2>
-</div>
-<!-- Crousal -->
-<div class = "container">
-  <div id="myCarousel" class="carousel slide" data-ride="carousel">
-    <!-- Indicators -->
-	
-    <ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel" data-slide-to="1"></li>
-      <li data-target="#myCarousel" data-slide-to="2"></li>
-    </ol>
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner">
-      <div class="item active">
-        <img src="co1.jpg" alt="Los Angeles" style="width:100%;">
-      </div>
-      <div class="item">
-        <img src="header.jpg" alt="Chicago" style="width:100%;">
-      </div>
-    
-      <div class="item">
-        <img src="vision.jpg" alt="New york" style="width:100%;">
+
+<div id="mainContainer" class="clearfix">
+
+  <img src = "logo.png" width = "200px" height = "200px">
+  <div class="container">
+  <div class="row" style="width:100%">
+    <div class="col-md-4">
+      <div class="info">
+      <h1><i>What we do?</i></h1>
+      <p>We provide creative & efficent web solutions to our clients. Our aim is to always keep challenging ourselves and improve our services to the clients.</p>
       </div>
     </div>
-    <!-- Left and right controls -->
-    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right"></span>
-      <span class="sr-only">Next</span>
-    </a>
+    <div class="col-md-4">
+      <div class="info">
+      <h1><i>Who are we?</i></h1>
+      <p>We are a group of motivated developers originating from SEECS NUST, Islamabad. Our office is located in TIC-NUST and is open 9AM-5PM for clients.</p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="info">
+      <h1><i>Why we do?</i></h1>
+      <p>We enjoy working on new ideas and pushing ourselves to the max. why not.</p>
+      </div>
+    </div>
+  </div>
   </div>
 </div>
-</div>
-  
-	<section id="team" class="section gray-bg" style="background-image:url('b1.jpg'); background-size:cover; margin-top:0.2px;">
-		<div class="container">
-			<div class="row title text-center">
-				<h2 class="margin-top" style="color:grey">Top Users</h2>
-				<h4 class="light muted" style="color:grey">There to Help!</h4>
-			</div>
-			<div class="row" style="color:white">
-				<div class="col-md-4">
-					<div class="team text-center">
-						<div class="cover" style="background:url('x1.png'); background-size:cover;">
-							<div class="overlay text-center">
-								<h3 class="white">Software Engineering</h3>
-								<h5 class="light light-white">3rd semester</h5>
-							</div>
-						</div>
-						<img src="ashar.jpg" alt="Team Image" class="avatar">
-						<div class="title">
-							<h4 class=white>Ashar Mehmood</h4>
-							<h5 class="muted regular">Database Expert</h5>
-						</div>
-						<!-- <button data-toggle="modal" data-target="#modal1" class="btn btn-blue-fill">Sign Up Now</button> -->
-						<h5 class="muted">cell:+923226627614</h5>
-						<h5 class="muted">mail:asharmehmood93@gmail.com</h5>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="team text-center">
-						<div class="cover" style="background:url('x2.jpg'); background-size:cover;">
-							<div class="overlay text-center">
-								<h3 class="white">Software Engineering</h3>
-								<h5 class="light light-white">3rd semester</h5>
-							</div>
-						</div>
-						<img src="rana.jpg" alt="Team Image" class="avatar">
-						<div class="title">
-							<h4 class=white>Ahmed Rana</h4>
-							<h5 class="muted regular">C Programer</h5>
-						</div>
-						<!-- <a href="course1.php" target="null" data-toggle="modal" data-target="#modal1" class="btn btn-blue-fill ripple">Sign Up Now</a> -->
-						<h5 class="muted">cell:+923241524963</h5>
-						<h5 class="muted">mail:ahmedrana03@gmail.com</h5>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="team text-center">
-						<div class="cover" style="background:url('w.png'); background-size:cover;">
-							<div class="overlay text-center">
-								<h3 class="white">Software Engineering</h3>
-								<h5 class="light light-white">3rd semester</h5>
-							</div>
-						</div>
-						<img src="wajahat.jpg" alt="Team Image" class="avatar">
-						<div class="title">
-							<h4 class=white>Wajahat Hussain</h4>
-							<h5 class="muted regular">Fluid Physics Expert</h5>
-						</div>
-						<h5 class="muted">cell:+923426547852</h5>
-						<h5 class="muted">mail:wajahathussain58gmail.com</h5>
-					</div>
-				</div>
-			</div>
-	<script>
-// This is called with the results from from FB.getLoginStatus().
- function statusChangeCallback(response) {
-    console.log('statusChangeCallback');
-    console.log(response);
-    // The response object is returned with a status field that lets the
-    // app know the current login status of the person.
-    // Full docs on the response object can be found in the documentation
-    // for FB.getLoginStatus().
-    if (response.status === 'connected') {
-      // Logged into your app and Facebook.
-      testAPI();
-    } else {
-      // The person is not logged into your app or we are unable to tell.
-      document.getElementById('status').innerHTML = ' ' +
-        '';
-    }
-  }
-  // This function is called when someone finishes with the Login
-  // Button.  See the onlogin handler attached to it in the sample
-  // code below.
-  function checkLoginState() {
-    FB.getLoginStatus(function(response) {
-      statusChangeCallback(response);
-    });
-  }
-  window.fbAsyncInit = function() {
-  FB.init({
-    appId      : '1770566756582849',
-    cookie     : true,  // enable cookies to allow the server to access 
-                        // the session
-    xfbml      : true,  // parse social plugins on this page
-    version    : 'v2.10' // use graph api version 2.8
-  });
- 
-  FB.getLoginStatus(function(response) {
-    statusChangeCallback(response);
-  });
-  };
-  // Load the SDK asynchronously
-  (function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_US/sdk.js";
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));
-  
-  function testAPI() {
-    console.log(' ');
-    FB.api('/me', function(response) {
-      console.log('' + response.name);
-      document.getElementById('status').innerHTML =
-        ' ' + response.name + '!';
-    });
-  }
-</script>
-<div id="map"></div>
-			
-</section>
+
 </body>
 <nav id="myfooter" class="navbar navbar-default navbar-inverse navbar-fixed-bottom">
     <div class="container" style="width:100%;padding:0px;">
         <div class="navbar-header">
             <ul>
               <span class="navbar-brand"><a href="about.php" style="text-decoration: none !important;">About Us</a></span>
-				<span class="navbar-brand">
-						<a href="logout.php" class="btn btn-white-fill" style="margin-top: -0.1cm; text-decoration: none">LOGOUT<?php if (isset($_SESSION['username'])) {
-						echo "<span style = 'color:white'> ("  . $_SESSION['username'] . ")</span>"; } ?></a>
-																																		
-				</span>
-				
+        <span class="navbar-brand">
+            <a href="logout.php" class="btn btn-white-fill" style="margin-top: -0.1cm; text-decoration: none">LOGOUT<?php if (isset($_SESSION['username'])) {
+            echo "<span style = 'color:white'> ("  . $_SESSION['username'] . ")</span>"; } ?></a>
+                                                                    
+        </span>
+        
             </ul>
         </div>
         <p class="navbar-text navbar-right" style="font-weight: normal !important;font-size: 12;">BESE-6B - SEECS &emsp;|&emsp;Ahmed Rana &emsp; Sohaib Zahid &emsp; Mana Tariq &emsp; Zara Malik &emsp; </p>

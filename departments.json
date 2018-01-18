@@ -1,0 +1,14 @@
+{"Departments": [
+     {"Name": "Computer Science", "Link": "this is link for CS" ,
+          "Courses": [{"Name": "Database Systems", "Link": "This is link for DBS"},
+           {"Name": "Adavanced Programming", "Link": "This is link for AP"},
+            {"Name": "Artificial Intellegence", "Link":"This is link for AI"}]},
+     {"Name": "Software Engineering", "Link": "this is link for SE" ,
+          "Courses": [{"Name": "Datastructures and Algorithms", "Link": "This is link for DSA"},
+           {"Name": "Software Design and Architecture", "Link": "This is link for SDA"},
+            {"Name": "Web Development", "Link":"This is link for Web"}]},
+     {"Name": "Eelectrical Enginerring", "Link": "this is link for EE" ,
+          "Courses": [{"Name": "Digital Logic Design", "Link": "This is link for DLD"},
+           {"Name": "Computer Networking", "Link": "This is link for CN"},
+            {"Name": "Basic Electronics", "Link":"This is link for BE"}]}
+]}

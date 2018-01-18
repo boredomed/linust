@@ -9,37 +9,30 @@
     }
   }
 ?>
-
 <html>
 	<head>
     <meta charset="uff-8">
-    <title>Home</title>
+    <title>News Portal</title>
+
+
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="navbar-scripts.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="navbar_scripts.js"></script>
-  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  
   <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_ZLiuoiFRFyTjcOMLxGiFWE9A9HXcYsI&callback=initMap">
     </script>
   
 	<link rel="stylesheet" type="text/css" href="css/animate.css">
   <!-- Normalize -->
-  <link rel="stylesheet" type="text/css" href="cardioo.css">
-  
+	<link rel="stylesheet" type="text/css" href="css/cardio.css">
+	    <script src="navbar_scripts.js"></script>
   <link rel="stylesheet" type="text/css" href="stylesheet1.css">
-   <script>
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-ga('create', 'UA-111996482-1', 'auto');
-ga('send', 'pageview');
-</script>
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111996482-1"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -48,18 +41,19 @@ ga('send', 'pageview');
   gtag('config', 'UA-111996482-1');
 </script>
 
-  <div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10&appId=1770566756582849";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
 <script>
-$(document).ready(function(){
-    $('[data-toggle="popover"]').popover();   
-});
+  var i = 0;
+  var txt = 'LINE NUST WITH INOVATION';
+  var speed = 50;
+
+  function typeWriter() {
+    if (i < txt.length) {
+      document.getElementById("n2").innerHTML += txt.charAt(i);
+      i++;
+      setTimeout(typeWriter, speed);
+    }
+  }
+
 </script>
 
 </head>
@@ -89,8 +83,8 @@ $(document).ready(function(){
           $_SESSION['username'] = $row['username'];
           setcookie('user_id', $row['user_id'], time() + (60 * 60 * 24 * 30));    // expires in 30 days
           setcookie('username', $row['username'], time() + (60 * 60 * 24 * 30));  // expires in 30 days
-		  // Redirect to the home page
-			$home_url = 'http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/home.php';
+      // Redirect to the home page
+      $home_url = 'http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/home.php';
          
         }
         else {
@@ -98,7 +92,7 @@ $(document).ready(function(){
           
           //<h5 style = 'color:white; margin-top:1cm; margin-bottom:-2cm; float:right'>Sorry, you must enter a valid username and password to log in.</h5>
        echo "<script>alert('Sorry, you must enter a valid username and password to log in');</script>";
-		}
+    }
       }
       else {
         // The username/password weren't entered so set an error message
@@ -107,7 +101,6 @@ $(document).ready(function(){
     }
   }
 ?>
-
 <body onload = "typeWriter()">
 <section id="team" class="section gray-bg" style="background-image:url(b1.jpg); background-size:cover;";">
   <!-- Nav Bar -->
@@ -195,19 +188,19 @@ $(document).ready(function(){
               </li>
               <li>
                 <button style="margin:0px;margin:12px 0px 12px 0px ;padding: 0px;" class="searchGo">>> </button>
-				&nbsp
+        &nbsp
               </li>
             </ul>
           </li><?php if (isset($_SESSION['username'])){  ?>
-		  
-		  <li><span class="glyphicon glyphicon-edit" style = "color:white; margin-top: .5cm;"></span>
-				<a href="viewprofile.php" style="margin-top: -.75cm; color:white;"><?php echo '&nbsp'.strtoupper($_SESSION['username']).''; ?>
-		  </li>
-		  
+      
+      <li><span class="glyphicon glyphicon-edit" style = "color:white; margin-top: .5cm;"></span>
+        <a href="viewprofile.php" style="margin-top: -.75cm; color:white;"><?php echo '&nbsp'.strtoupper($_SESSION['username']).''; ?>
+      </li>
+      
          <?php } else {?>
-		  <li><a data-toggle="modal" data-target="#signupModal"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a data-toggle="modal" data-target="#signupModal"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
           <li><a data-toggle="modal" data-target="#loginModal"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-		 <?php } ?>
+     <?php } ?>
         </ul>
       </div>
     </div>
@@ -233,13 +226,13 @@ $(document).ready(function(){
               <input type="password" class="form-control input-sm" placeholder="Password" id="password" name="password" required>
             </div>
             <input type="submit" value = "Sign in" name = "submit" class="btn btn-info btn-xs">
-			
+      
             </Br></Br>
             <div class="checkbox">
               <label>
                 <input type="checkbox" id = "rememberme" name = "rememberme"> Remember me
               </label><br><br>
-			  <div align="center" class="fb-login-button" data-max-rows="1" data-size="small" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>
+        <div align="center" class="fb-login-button" data-max-rows="1" data-size="small" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>
             </div>  
           </form>
         </div>
@@ -382,176 +375,65 @@ $(document).ready(function(){
 <div class = "namee" id = "n1">
 <h1>LINUST</h1>
 <h2 id = "n2"></h2>
+
 </div>
-<!-- Crousal -->
-<div class = "container">
-  <div id="myCarousel" class="carousel slide" data-ride="carousel">
-    <!-- Indicators -->
-	
-    <ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel" data-slide-to="1"></li>
-      <li data-target="#myCarousel" data-slide-to="2"></li>
-    </ol>
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner">
-      <div class="item active">
-        <img src="co1.jpg" alt="Los Angeles" style="width:100%;">
-      </div>
-      <div class="item">
-        <img src="header.jpg" alt="Chicago" style="width:100%;">
-      </div>
-    
-      <div class="item">
-        <img src="vision.jpg" alt="New york" style="width:100%;">
-      </div>
-    </div>
-    <!-- Left and right controls -->
-    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right"></span>
-      <span class="sr-only">Next</span>
-    </a>
-  </div>
+
+
+<div class= "col-md-12 col-xs-12" style="background-color: black"> 
+ <div class="w3-bar w3-black">
+  <button class="w3-bar-item w3-button" onclick="opentab('New1')">ALUMNI TALK SERIES TCF</button>
+  <button class="w3-bar-item w3-button" onclick="opentab('New2')">NUST HOSTS BEACONHOUSE STUDENTS</button>
+  <button class="w3-bar-item w3-button" onclick="opentab('New3')">QS ASIAN UNIVERSITY RANKING</button>
+  <button class="w3-bar-item w3-button" onclick="opentab('New4')">CSD EARTH-BREAKING CEREMONY AT NUST</button>
+</div>
+
+<div id="New1" class="w3-container city" style="color:white" class= "col-md-12 col-xs-12">
+  <h2  align="left">ALUMNI TALK SERIES TCF</h2>
+  <p  align="left"> Alumni Talk Series: TCF was held on 21st November 2017 at Dhok Chaudhriyan Rawalpindi. This session was meant to be a source of inspiration to the students of TCF; that what they have achieved so far is just a beginning and a beautiful long journey awaits them. </p>
+  <img src="new1.jpg" class= "col-md-12 col-xs-12">
+</div>
+
+<div id="New2" class="w3-container city" style="display:none; color:white" class= "col-md-12 col-xs-12">
+<h2  align="left">NUST HOSTS BEACONHOUSE STUDENTS</h2>
+  <p align="left">As part of its initiative to arrange on-campus orientation/exposure visits for the school/college students, National University of Sciences & Technology (NUST) hosted around 50 students of different academic levels from Beaconhouse School System (Main Campus Peshawar Road, Rawalpindi) on Thursday, November 23, 2017. Upon arrival, they were given a detailed briefing on NUST programs of study, research and allied campus facilities, student-managed clubs & societies, etc. Later, Director Student Affairs and Principal NUST School of Mechanical & Manufacturing Engineering (SMME) responded to queries raised by the students regarding the admission criteria, accommodation facilities, etc.</p> 
+  <img src="new2.jpg" class= "col-md-12 col-xs-12">
+</div>
+
+<div id="New3" class="w3-container city" style="display:none; color:white" class= "col-md-12 col-xs-12">
+<h2  align="left">QS ASIAN UNIVERSITY RANKING</h2>
+<p  align="left"> According to the Quacquarelli Symonds (QS) Asian Ranking 2018, the National University of Sciences & Technology (NUST), Pakistan, has moved up the ladder to No. 91 in the Asian region – this latest position by NUST is a whopping 38 ranks higher than 2014, and 21 ranks higher than 2017. NUST is the only Pakistani university that stands among the top 100 in Asia.
+NUST has been consistently improving its overall position in Asian University Rankings by Quacquarelli Symonds, UK, since 2014. The QS rankings are one of the most influential university rankings in the world; these are carried out on the basis of academic reputation, employer reputation, faculty / student ratio, citation per paper, paper per faculty, staff with PhD, and internationalization.</p>
+<img src="new3.jpg" class= "col-md-12 col-xs-12">
+</div>
+<div id="New4" class="w3-container city" style="display:none; color:white" class= "col-md-12 col-xs-12">
+<h2  align="left">CSD EARTH-BREAKING CEREMONY AT NUST</h2>
+<p  align="left">NUST held the earth-breaking ceremony of CSD canteen at its H-12 campus on Friday 3rd November 2017. Brig Iqtidar Naseer, Director Commercial and Marketing CSD, and other CSD representatives attended the ceremony, in addition to NUST management and faculty. Lt Gen Naweed Zaman, HI (M), (Retd), Rector NUST, unveiled the plaque and expressed his gratitude to the CSD management for bringing their facility to NUST. The CSD canteen at NUST H-12 campus is likely to be functional within 4-6 months, and will be equipped with household provisions, kitchen appliances, sports equipment, electronics, and much more. </p>
+<img src="new4.jpg" class= "col-md-12 col-xs-12">
 </div>
 </div>
-  
-	<section id="team" class="section gray-bg" style="background-image:url('b1.jpg'); background-size:cover; margin-top:0.2px;">
-		<div class="container">
-			<div class="row title text-center">
-				<h2 class="margin-top" style="color:grey">Top Users</h2>
-				<h4 class="light muted" style="color:grey">There to Help!</h4>
-			</div>
-			<div class="row" style="color:white">
-				<div class="col-md-4">
-					<div class="team text-center">
-						<div class="cover" style="background:url('x1.png'); background-size:cover;">
-							<div class="overlay text-center">
-								<h3 class="white">Software Engineering</h3>
-								<h5 class="light light-white">3rd semester</h5>
-							</div>
-						</div>
-						<img src="ashar.jpg" alt="Team Image" class="avatar">
-						<div class="title">
-							<h4 class=white>Ashar Mehmood</h4>
-							<h5 class="muted regular">Database Expert</h5>
-						</div>
-						<!-- <button data-toggle="modal" data-target="#modal1" class="btn btn-blue-fill">Sign Up Now</button> -->
-						<h5 class="muted">cell:+923226627614</h5>
-						<h5 class="muted">mail:asharmehmood93@gmail.com</h5>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="team text-center">
-						<div class="cover" style="background:url('x2.jpg'); background-size:cover;">
-							<div class="overlay text-center">
-								<h3 class="white">Software Engineering</h3>
-								<h5 class="light light-white">3rd semester</h5>
-							</div>
-						</div>
-						<img src="rana.jpg" alt="Team Image" class="avatar">
-						<div class="title">
-							<h4 class=white>Ahmed Rana</h4>
-							<h5 class="muted regular">C Programer</h5>
-						</div>
-						<!-- <a href="course1.php" target="null" data-toggle="modal" data-target="#modal1" class="btn btn-blue-fill ripple">Sign Up Now</a> -->
-						<h5 class="muted">cell:+923241524963</h5>
-						<h5 class="muted">mail:ahmedrana03@gmail.com</h5>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="team text-center">
-						<div class="cover" style="background:url('w.png'); background-size:cover;">
-							<div class="overlay text-center">
-								<h3 class="white">Software Engineering</h3>
-								<h5 class="light light-white">3rd semester</h5>
-							</div>
-						</div>
-						<img src="wajahat.jpg" alt="Team Image" class="avatar">
-						<div class="title">
-							<h4 class=white>Wajahat Hussain</h4>
-							<h5 class="muted regular">Fluid Physics Expert</h5>
-						</div>
-						<h5 class="muted">cell:+923426547852</h5>
-						<h5 class="muted">mail:wajahathussain58gmail.com</h5>
-					</div>
-				</div>
-			</div>
-	<script>
-// This is called with the results from from FB.getLoginStatus().
- function statusChangeCallback(response) {
-    console.log('statusChangeCallback');
-    console.log(response);
-    // The response object is returned with a status field that lets the
-    // app know the current login status of the person.
-    // Full docs on the response object can be found in the documentation
-    // for FB.getLoginStatus().
-    if (response.status === 'connected') {
-      // Logged into your app and Facebook.
-      testAPI();
-    } else {
-      // The person is not logged into your app or we are unable to tell.
-      document.getElementById('status').innerHTML = ' ' +
-        '';
+<script>
+function opentab(cityName) {
+    var i;
+    var x = document.getElementsByClassName("city");
+    for (i = 0; i < x.length; i++) {
+       x[i].style.display = "none";  
     }
-  }
-  // This function is called when someone finishes with the Login
-  // Button.  See the onlogin handler attached to it in the sample
-  // code below.
-  function checkLoginState() {
-    FB.getLoginStatus(function(response) {
-      statusChangeCallback(response);
-    });
-  }
-  window.fbAsyncInit = function() {
-  FB.init({
-    appId      : '1770566756582849',
-    cookie     : true,  // enable cookies to allow the server to access 
-                        // the session
-    xfbml      : true,  // parse social plugins on this page
-    version    : 'v2.10' // use graph api version 2.8
-  });
- 
-  FB.getLoginStatus(function(response) {
-    statusChangeCallback(response);
-  });
-  };
-  // Load the SDK asynchronously
-  (function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_US/sdk.js";
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));
-  
-  function testAPI() {
-    console.log(' ');
-    FB.api('/me', function(response) {
-      console.log('' + response.name);
-      document.getElementById('status').innerHTML =
-        ' ' + response.name + '!';
-    });
-  }
-</script>
-<div id="map"></div>
-			
-</section>
+    document.getElementById(cityName).style.display = "block";  
+}
+
+	</script>
 </body>
 <nav id="myfooter" class="navbar navbar-default navbar-inverse navbar-fixed-bottom">
     <div class="container" style="width:100%;padding:0px;">
         <div class="navbar-header">
             <ul>
               <span class="navbar-brand"><a href="about.php" style="text-decoration: none !important;">About Us</a></span>
-				<span class="navbar-brand">
-						<a href="logout.php" class="btn btn-white-fill" style="margin-top: -0.1cm; text-decoration: none">LOGOUT<?php if (isset($_SESSION['username'])) {
-						echo "<span style = 'color:white'> ("  . $_SESSION['username'] . ")</span>"; } ?></a>
-																																		
-				</span>
-				
+        <span class="navbar-brand">
+            <a href="logout.php" class="btn btn-white-fill" style="margin-top: -0.1cm; text-decoration: none">LOGOUT<?php if (isset($_SESSION['username'])) {
+            echo "<span style = 'color:white'> ("  . $_SESSION['username'] . ")</span>"; } ?></a>
+                                                                    
+        </span>
+        
             </ul>
         </div>
         <p class="navbar-text navbar-right" style="font-weight: normal !important;font-size: 12;">BESE-6B - SEECS &emsp;|&emsp;Ahmed Rana &emsp; Sohaib Zahid &emsp; Mana Tariq &emsp; Zara Malik &emsp; </p>

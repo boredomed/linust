@@ -11,56 +11,146 @@
 ?>
 
 <html>
-	<head>
-    <meta charset="uff-8">
-    <title>Home</title>
-
+<head>
+<title> Admin Panel </title>
+<head>
+    <!-- media queries -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="navbar_scripts.js"></script>
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-  <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_ZLiuoiFRFyTjcOMLxGiFWE9A9HXcYsI&callback=initMap">
-    </script>
-  
-	<link rel="stylesheet" type="text/css" href="css/animate.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+  <script src="navbar_scripts.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/animate.css">
   <!-- Normalize -->
-  <link rel="stylesheet" type="text/css" href="cardioo.css">
+  <link rel="stylesheet" type="text/css" href="css/cardio.css">
   
   <link rel="stylesheet" type="text/css" href="stylesheet1.css">
-   <script>
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-ga('create', 'UA-111996482-1', 'auto');
-ga('send', 'pageview');
-</script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+  <!-- Global Site Tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111996482-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-111996482-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'UA-111996482-1');
-</script>
+    gtag('config', 'UA-111996482-1');
+  </script>
 
-  <div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10&appId=1770566756582849";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-<script>
-$(document).ready(function(){
-    $('[data-toggle="popover"]').popover();   
-});
-</script>
+  <style type="text/css">
+    @import "http://fonts.googleapis.com/css?family=Raleway";
+  
+    #my_div {
+      width:100%;
+      height:100%;
+      opacity:.95;
+      top:0;
+      left:0;
+      display:none;
+      position:fixed;
+      background-color:#313131;
+      overflow:auto;
+      z-index: 1000;
+    }
+
+    #my_div1 {
+      width:100%;
+      height:100%;
+      opacity:.95;
+      top:0;
+      left:0;
+      display:none;
+      position:fixed;
+      background-color:#313131;
+      overflow:auto;
+      z-index: 1000;
+    }
+
+    div#my_popup {
+      position:absolute;
+      left:50%;
+      top:200%;
+      align-content: center;
+      overflow: visible;
+      margin-left:-202px;
+      font-family:'Raleway',sans-serif
+    }
+
+    form#fupForm {
+      max-width:300px;
+      min-width:250px;
+      padding:10px 50px;
+      border:2px solid gray;
+      border-radius:10px;
+      font-family:raleway;
+      background-color:#fff;
+      margin-left: 40%;
+      margin-top:20%;
+    }
+
+    form#URLForm {
+      max-width:300px;
+      min-width:250px;
+      padding:10px 50px;
+      border:2px solid gray;
+      border-radius:10px;
+      font-family:raleway;
+      background-color:#fff;
+      margin-left: 40%;
+      margin-top:20%;
+    }
+
+
+    .sortable {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    border:0px;
+    width: 100%;
+    color:#222222;
+    }
+
+    .sortable tr:nth-child(even){background-color: #f2f2f2;}
+
+    .sortable tr:hover {background-color: #ddd;}
+
+    .sortable td, .sortable th {
+        border: 1px solid #ddd;
+        padding: 8px;
+        color: #222222;
+    }
+
+    .sortable th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: center;
+        background-color: #222222;
+        color: white;
+    }
+    .headers{
+      padding-left: 5%; 
+      padding-right: 5%;
+      opacity: 0.9;
+    }
+    .tableContainer{
+      background-color: #f5f2f1;
+      border-radius: 0px 0px 5px 5px;
+      margin-left: 2%; 
+      margin-right: 2%;
+      padding: 2% 
+    }
+    .headers >h3{
+      margin-bottom: 0px;
+    }
+    .comment{
+      opacity: 0.9;
+      background-color: #303030;
+    }
+    .comment > p{
+      margin-bottom: 3px;
+    }
+  </style>
 
 </head>
 <?php
@@ -89,8 +179,8 @@ $(document).ready(function(){
           $_SESSION['username'] = $row['username'];
           setcookie('user_id', $row['user_id'], time() + (60 * 60 * 24 * 30));    // expires in 30 days
           setcookie('username', $row['username'], time() + (60 * 60 * 24 * 30));  // expires in 30 days
-		  // Redirect to the home page
-			$home_url = 'http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/home.php';
+      // Redirect to the home page
+      $home_url = 'http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/home.php';
          
         }
         else {
@@ -98,7 +188,7 @@ $(document).ready(function(){
           
           //<h5 style = 'color:white; margin-top:1cm; margin-bottom:-2cm; float:right'>Sorry, you must enter a valid username and password to log in.</h5>
        echo "<script>alert('Sorry, you must enter a valid username and password to log in');</script>";
-		}
+    }
       }
       else {
         // The username/password weren't entered so set an error message
@@ -107,6 +197,25 @@ $(document).ready(function(){
     }
   }
 ?>
+<script>
+$(document).ready(function(){    
+    $("div.headers h3").click(function(){
+      console.log("asdasd");
+        $(this).siblings("*").not("h3").toggle();
+    });
+/*    $("input[type='button']").click(function(e){
+      e.preventDefault();
+      return false; 
+    });
+*/
+    $('table').DataTable( {
+        fixedHeader: true
+    } );
+  $("#courseProgress");
+  $("#linkProgress");
+});
+
+</script>
 
 <body onload = "typeWriter()">
 <section id="team" class="section gray-bg" style="background-image:url(b1.jpg); background-size:cover;";">
@@ -195,19 +304,19 @@ $(document).ready(function(){
               </li>
               <li>
                 <button style="margin:0px;margin:12px 0px 12px 0px ;padding: 0px;" class="searchGo">>> </button>
-				&nbsp
+        &nbsp
               </li>
             </ul>
           </li><?php if (isset($_SESSION['username'])){  ?>
-		  
-		  <li><span class="glyphicon glyphicon-edit" style = "color:white; margin-top: .5cm;"></span>
-				<a href="viewprofile.php" style="margin-top: -.75cm; color:white;"><?php echo '&nbsp'.strtoupper($_SESSION['username']).''; ?>
-		  </li>
-		  
+      
+      <li><span class="glyphicon glyphicon-edit" style = "color:white; margin-top: .5cm;"></span>
+        <a href="viewprofile.php" style="margin-top: -.75cm; color:white;"><?php echo '&nbsp'.strtoupper($_SESSION['username']).''; ?>
+      </li>
+      
          <?php } else {?>
-		  <li><a data-toggle="modal" data-target="#signupModal"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a data-toggle="modal" data-target="#signupModal"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
           <li><a data-toggle="modal" data-target="#loginModal"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-		 <?php } ?>
+     <?php } ?>
         </ul>
       </div>
     </div>
@@ -233,13 +342,13 @@ $(document).ready(function(){
               <input type="password" class="form-control input-sm" placeholder="Password" id="password" name="password" required>
             </div>
             <input type="submit" value = "Sign in" name = "submit" class="btn btn-info btn-xs">
-			
+      
             </Br></Br>
             <div class="checkbox">
               <label>
                 <input type="checkbox" id = "rememberme" name = "rememberme"> Remember me
               </label><br><br>
-			  <div align="center" class="fb-login-button" data-max-rows="1" data-size="small" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>
+        <div align="center" class="fb-login-button" data-max-rows="1" data-size="small" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>
             </div>  
           </form>
         </div>
@@ -378,180 +487,178 @@ $(document).ready(function(){
       </div>
     </div>
   </div>
-	  
-<div class = "namee" id = "n1">
-<h1>LINUST</h1>
-<h2 id = "n2"></h2>
+
+
+<?php if (isset($_SESSION['username']) && $_SESSION['username']=='admin'){ ?>
+<div class="headers" style="margin-top: 100px"><h3>Course Work</h3>
+  <div class="tableContainer">
+  <table class="sortable">
+    <thead style="color:black;background-color: white;">
+      <tr>
+        <th style="padding: 0px;width:30px;">ID</th>
+        <th>Title</th>
+        <th>Uploader</th>
+        <th>Time</th>
+        <th style="padding: 0px;width:40px;"><span class="glyphicon glyphicon-thumbs-up"></span></th>
+        <th style="padding: 0px;width:40px;"><span class="glyphicon glyphicon-Trash"></span></th>
+      </tr>
+    </thead>
+    <tbody>
+      <?php
+        $mysqli = new mysqli("localhost", "root", "", "linust_f");
+        $result = $mysqli->query("SELECT * FROM file_upload as f1 NATURAL JOIN users as u1 WHERE f1.course_name='dbs';");
+
+        
+        while($row = $result->fetch_assoc()){
+          echo "<tr>";
+            echo "<td>";
+              echo $row['file_id'];
+            echo "</td>";
+            echo "<td>";
+              echo $row['file_name'];
+            echo "</td>";
+            echo "<td>";
+              echo $row['first_name'].' '.$row['last_name'].' ('.$row['username'].')';
+            echo "</td>";
+            echo "<td>";
+              echo $row['f_date'];
+            echo "</td>";
+
+
+            echo "<td>";
+            if($row['status']==0){
+              echo '<a href="approve.php?id='.$row['file_id'].'&type=CourseWork"><span class="glyphicon glyphicon-ok"></span></a>';
+            }
+            echo "</td>";
+
+            echo "<td>";
+              echo '<a href="delete.php?id='.$row['file_id'].'&type=CourseWork"><span class="glyphicon glyphicon-remove"></span></a>';
+            echo "</td>";
+            echo "</tr>";
+        }
+      ?>
+    </tbody>
+  </table>
 </div>
-<!-- Crousal -->
-<div class = "container">
-  <div id="myCarousel" class="carousel slide" data-ride="carousel">
-    <!-- Indicators -->
-	
-    <ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel" data-slide-to="1"></li>
-      <li data-target="#myCarousel" data-slide-to="2"></li>
-    </ol>
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner">
-      <div class="item active">
-        <img src="co1.jpg" alt="Los Angeles" style="width:100%;">
-      </div>
-      <div class="item">
-        <img src="header.jpg" alt="Chicago" style="width:100%;">
-      </div>
-    
-      <div class="item">
-        <img src="vision.jpg" alt="New york" style="width:100%;">
-      </div>
-    </div>
-    <!-- Left and right controls -->
-    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right"></span>
-      <span class="sr-only">Next</span>
-    </a>
+</div>
+<div class="headers" ><h3>Related links</h3>
+<div class="tableContainer">
+<table class="sortable">
+    <thead style="color:black;background-color: white;">
+      <tr>
+        <th style="padding: 0px;width:30px;">ID</th>
+        <th>Link</th>
+        <th>Uploader</th>
+        <th>Time</th>
+        <th style="padding: 0px;width:40px;"><span class="glyphicon glyphicon-thumbs-up"></span></th>
+        <th style="padding: 0px;width:40px;"><span class="glyphicon glyphicon-Trash"></span></th>
+      </tr>
+    </thead>
+    <tbody>
+      <?php
+        $mysqli = new mysqli("localhost", "root", "", "linust_f");
+        $result = $mysqli->query("SELECT * FROM url_upload as f1 NATURAL JOIN users as u1 WHERE f1.course_name='dbs';");
+
+        while($row = $result->fetch_assoc()){
+          echo "<tr>";
+            echo "<td>";
+              echo $row['url_id'];
+            echo "</td>";
+            echo "<td>";
+              echo $row['url_link'];
+            echo "</td>";
+            echo "<td>";
+              echo $row['first_name'].' '.$row['last_name'].' ('.$row['username'].')';
+            echo "</td>";
+            echo "<td>";
+              echo $row['u_date'];
+            echo "</td>";
+
+
+            echo "<td>";
+            if($row['status']==0){
+              echo '<a href="approve.php?id='.$row['url_id'].'&type=RelatedLink"><span class="glyphicon glyphicon-ok"></span></a>';
+            }
+            echo "</td>";
+              
+
+            echo "<td>";
+              echo '<a href="delete.php?id='.$row['url_id'].'&type=RelatedLink"><span class="glyphicon glyphicon-remove"></span></a>';
+            echo "</td>";
+          echo "</tr>";
+        }
+      ?>
+    </tbody>
+  </table>
+</div>
+</div>
+  <div class="headers"><h3>Users</h3>
+  <div class="tableContainer">
+    <table class="sortable">
+      <thead style="color:black;background-color: white;">
+        <tr>
+          <th style="padding: 0px;width:40px;">ID</th>
+          <th>Name</th>
+          <th>Username</th>
+          <th>Email</th>
+          <th style="padding: 0px;width:80px;">Uploads</th>
+          <th style="padding: 0px;width:80px;">Comments</th>
+          <th style="padding: 0px;width:40px;"><span class="glyphicon glyphicon-Trash"></span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php
+          $mysqli = new mysqli("localhost", "root", "", "linust_f");
+          $result = $mysqli->query("SELECT * FROM users;");
+
+          while($row = $result->fetch_assoc()){
+            echo "<tr>";
+              echo "<td>";
+                echo $row['user_id'];
+              echo "</td>";
+              echo "<td>";
+                echo $row['first_name'].' '.$row['last_name'];
+              echo "</td>";
+              echo "<td>";
+                echo $row['username'];
+              echo "</td>";
+              echo "<td>";
+                echo $row['email'];
+              echo "</td>";
+              echo "<td>";
+                echo $row['no_of_uploads'];
+              echo "</td>";
+              echo "<td>";
+                echo $row['no_of_comments'];
+              echo "</td>";
+
+              echo "<td>";
+              echo '<a href="delete.php?id='.$row['user_id'].'&type=user"><span class="glyphicon glyphicon-remove"></span></a>';
+              echo "</td>";
+            echo "</tr>";
+          }
+        ?>
+      </tbody>
+    </table>
   </div>
-</div>
-</div>
-  
-	<section id="team" class="section gray-bg" style="background-image:url('b1.jpg'); background-size:cover; margin-top:0.2px;">
-		<div class="container">
-			<div class="row title text-center">
-				<h2 class="margin-top" style="color:grey">Top Users</h2>
-				<h4 class="light muted" style="color:grey">There to Help!</h4>
-			</div>
-			<div class="row" style="color:white">
-				<div class="col-md-4">
-					<div class="team text-center">
-						<div class="cover" style="background:url('x1.png'); background-size:cover;">
-							<div class="overlay text-center">
-								<h3 class="white">Software Engineering</h3>
-								<h5 class="light light-white">3rd semester</h5>
-							</div>
-						</div>
-						<img src="ashar.jpg" alt="Team Image" class="avatar">
-						<div class="title">
-							<h4 class=white>Ashar Mehmood</h4>
-							<h5 class="muted regular">Database Expert</h5>
-						</div>
-						<!-- <button data-toggle="modal" data-target="#modal1" class="btn btn-blue-fill">Sign Up Now</button> -->
-						<h5 class="muted">cell:+923226627614</h5>
-						<h5 class="muted">mail:asharmehmood93@gmail.com</h5>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="team text-center">
-						<div class="cover" style="background:url('x2.jpg'); background-size:cover;">
-							<div class="overlay text-center">
-								<h3 class="white">Software Engineering</h3>
-								<h5 class="light light-white">3rd semester</h5>
-							</div>
-						</div>
-						<img src="rana.jpg" alt="Team Image" class="avatar">
-						<div class="title">
-							<h4 class=white>Ahmed Rana</h4>
-							<h5 class="muted regular">C Programer</h5>
-						</div>
-						<!-- <a href="course1.php" target="null" data-toggle="modal" data-target="#modal1" class="btn btn-blue-fill ripple">Sign Up Now</a> -->
-						<h5 class="muted">cell:+923241524963</h5>
-						<h5 class="muted">mail:ahmedrana03@gmail.com</h5>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="team text-center">
-						<div class="cover" style="background:url('w.png'); background-size:cover;">
-							<div class="overlay text-center">
-								<h3 class="white">Software Engineering</h3>
-								<h5 class="light light-white">3rd semester</h5>
-							</div>
-						</div>
-						<img src="wajahat.jpg" alt="Team Image" class="avatar">
-						<div class="title">
-							<h4 class=white>Wajahat Hussain</h4>
-							<h5 class="muted regular">Fluid Physics Expert</h5>
-						</div>
-						<h5 class="muted">cell:+923426547852</h5>
-						<h5 class="muted">mail:wajahathussain58gmail.com</h5>
-					</div>
-				</div>
-			</div>
-	<script>
-// This is called with the results from from FB.getLoginStatus().
- function statusChangeCallback(response) {
-    console.log('statusChangeCallback');
-    console.log(response);
-    // The response object is returned with a status field that lets the
-    // app know the current login status of the person.
-    // Full docs on the response object can be found in the documentation
-    // for FB.getLoginStatus().
-    if (response.status === 'connected') {
-      // Logged into your app and Facebook.
-      testAPI();
-    } else {
-      // The person is not logged into your app or we are unable to tell.
-      document.getElementById('status').innerHTML = ' ' +
-        '';
-    }
-  }
-  // This function is called when someone finishes with the Login
-  // Button.  See the onlogin handler attached to it in the sample
-  // code below.
-  function checkLoginState() {
-    FB.getLoginStatus(function(response) {
-      statusChangeCallback(response);
-    });
-  }
-  window.fbAsyncInit = function() {
-  FB.init({
-    appId      : '1770566756582849',
-    cookie     : true,  // enable cookies to allow the server to access 
-                        // the session
-    xfbml      : true,  // parse social plugins on this page
-    version    : 'v2.10' // use graph api version 2.8
-  });
- 
-  FB.getLoginStatus(function(response) {
-    statusChangeCallback(response);
-  });
-  };
-  // Load the SDK asynchronously
-  (function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_US/sdk.js";
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));
-  
-  function testAPI() {
-    console.log(' ');
-    FB.api('/me', function(response) {
-      console.log('' + response.name);
-      document.getElementById('status').innerHTML =
-        ' ' + response.name + '!';
-    });
-  }
-</script>
-<div id="map"></div>
-			
-</section>
+  </div>
+<?php } 
+  else
+    echo "<h1>RESTRICTED AREA!<br>PLEASE STEP BACK</h1>";
+  ?>
+
 </body>
 <nav id="myfooter" class="navbar navbar-default navbar-inverse navbar-fixed-bottom">
     <div class="container" style="width:100%;padding:0px;">
         <div class="navbar-header">
             <ul>
               <span class="navbar-brand"><a href="about.php" style="text-decoration: none !important;">About Us</a></span>
-				<span class="navbar-brand">
-						<a href="logout.php" class="btn btn-white-fill" style="margin-top: -0.1cm; text-decoration: none">LOGOUT<?php if (isset($_SESSION['username'])) {
-						echo "<span style = 'color:white'> ("  . $_SESSION['username'] . ")</span>"; } ?></a>
-																																		
-				</span>
-				
+        <span class="navbar-brand">
+            <a href="logout.php" class="btn btn-white-fill" style="margin-top: -0.1cm; text-decoration: none">LOGOUT<?php if (isset($_SESSION['username'])) {
+            echo "<span style = 'color:white'> ("  . $_SESSION['username'] . ")</span>"; } ?></a>
+                                                                    
+        </span>
+        
             </ul>
         </div>
         <p class="navbar-text navbar-right" style="font-weight: normal !important;font-size: 12;">BESE-6B - SEECS &emsp;|&emsp;Ahmed Rana &emsp; Sohaib Zahid &emsp; Mana Tariq &emsp; Zara Malik &emsp; </p>
